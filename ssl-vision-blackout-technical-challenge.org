@@ -1,0 +1,134 @@
+#+TITLE: SSL-Vision Blackout Technical Challenge
+#+AUTHOR:
+
+* Goal of the Technical Challenge
+
+The goal of this challenge is to intercept and manipulate a ball
+without access to the global ssl-vision position estimates. While the
+competition will still use the standard SSL vision software, this
+challenge is intended to encourage teams to work on the problem of
+onboard sensing and control. We believe teams capable of onboard
+control and sensing will have a significant advantage over teams that
+rely solely on the SSL vision position estimates.
+
+* Procedure
+
+There are two main stages to this challenge. In each stage, there will
+be a single robot from the team undergoing the challenge. There will
+also be a single ball. The starting conditions and scoring will vary
+by stage.
+
+Teams may still remotely control their robots as they do during normal
+competition, but their software will not receive data from the SSL
+vision software. The SSL vision software will still be running, but
+the vision network will be isolated from the team undergoing the
+challenge. This way automatic referee programs may still be run to
+verify properties like ball speeds, out of bounds, etc. Teams will
+still receive start, stop and halt ref commands.
+
+All robot hardware requirements apply to this challenge *EXCEPT* the
+height restrictions and the pattern markings. Participant robots may
+be taller than the rules dictate. Participants also do not need a
+fully visible butterfly pattern on top. However, other hardware
+conditions (e.g. the width of the robot, etc.) still apply. As normal
+the robot may not have orange markings that can be confused for the
+ball. Participants may use any kind of onboard sensors to detect the
+ball. This means, for example, you can stick a camera on top of the
+robot with no need to package everything inside the normal robot
+dimensions.
+
+** Grab a stationary ball
+
+The robot will be placed in a random location on the field at least 2m
+from all edges. A ball will be placed within a 1m x 1m box around the
+robot at a randomly selected location. The goal is for the robot to
+find the ball and touch the ball with it's dribbler. Each team will
+have 10 seconds to complete the task. The procedure will be repeated 3
+times and scores will be totaled.
+
+The robot may move anywhere within the field boundaries. If either the
+robot or the ball leave the field lines then the run is ended.
+
+Figure [[fig:stage1-example]] shows an example for the initial state of a
+run.
+
+Before each run the robot will begin in the halt state. A stop command
+will be issued to ready the robot, but the robot should not yet
+move. The run begins with a force start command at which point the
+timer starts and the robot may attempt to complete the task.
+
+#+CAPTION: Example starting state for stage 1. The actual position on the field may vary. Ball may be placed anywhere in the red dashed box. This robot will be at least 2 meters from the edge of the field. The robot will begin with an arbitrary orientation with respect to the field.
+#+NAME:   fig:stage1-example
+#+ATTR_LATEX: :width \textwidth
+file:ssl-no-vision-tc-figs/stage1.png
+
+*** Scoring
+<<Stage 1 Scoring>>
+
+- touching the ball with any part of the robot :: +1
+- touching the ball with the dribbler :: +1
+- robot stopped with ball touching dribbler at the end of the run :: +1
+
+** Intercept a moving ball
+
+The goal is to intercept and gain control of a ball rolling towards
+the robot.
+
+The robot will be placed at a random location on the field at least 2m
+from all edges. The robot will begin by facing towards the ball's
+starting location.
+
+The ball will be kicked by a robot at a speed under 6.5 m/s. The ball
+will start it's trajectory between 3 and 5 meters from the robot. The
+ball's path will pass within 0.5m of the robot's starting position. If
+the ball trajectory fails to meet these conditions the team may choose
+to repeat the run, or keep the score they managed to achieve.
+
+Figure [[fig:stage2-start]] shows an example starting state for stage 2.
+
+Figure [[fig:stage2-valid]] shows an example of a good ball trajectory
+that passes within the specified distance of the robot's starting
+point. Figure [[fig:stage2-invalid]] shows an example of a bad ball
+trajectory, where the ball does not pass within the specified distance
+of the robot's starting point.
+ 
+If either the robot or the ball leave the field the run will be
+stopped. The run will end after 10 seconds of time.
+
+The procedure will be repeated 3 times with scores totaled.
+
+Before each run the robot will begin in the halt state. A stop command
+will be issued to ready the robot, but the robot should not yet
+move. The run begins with a force start command, at which point the
+ball should begin moving and the robot may attempt to complete the
+task.
+
+#+CAPTION: Example starting state for stage 2. Actual position on the field may vary.
+#+NAME: fig:stage2-start
+#+ATTR_LATEX: :width \textwidth
+file:ssl-no-vision-tc-figs/stage2_starting_state.png
+
+#+CAPTION: Example of a good trajectory for stage 2. The ball's straight line path passes within 0.5m of the robot's starting position marked by the red dashed circle
+#+NAME: fig:stage2-valid
+#+ATTR_LATEX: :width \textwidth
+file:ssl-no-vision-tc-figs/stage2_valid_trajectory.png
+
+#+CAPTION: Example of a bad trajectory for stage 2. The ball's straight line path does not pass within 0.5m of the robot's starting position marked by the red dashed circle
+#+NAME: fig:stage2-invalid
+#+ATTR_LATEX: :width \textwidth
+file:ssl-no-vision-tc-figs/stage2_invalid_trajectory.png
+
+
+*** Scoring
+<<Stage 2 Scoring>>
+
+- touching the ball with any part of the robot :: +1
+- touching the ball with the dribbler :: +1
+- robot stopped with ball touching the dribbler at the end of the run :: +1
+
+* Scoring
+
+The totals from each stage ([[Stage 1 Scoring]], [[Stage 2 Scoring]]) will be
+added to determine the winner. If there is a tie in terms of points,
+then the team which took the least amount of time on average, for runs
+in which the ball was touched, will win.

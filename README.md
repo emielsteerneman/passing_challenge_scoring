@@ -21,5 +21,5 @@ Run the command:
 
 ``` shell
 emacs --batch --no-init-file --find-file ssl-vision-blackout-technical-challenge.org --funcall org-html-export-to-html
-emacs --batch --no-init-file --find-file game-log-event-labeling-technical-challenge.org --funcall org-latex-export-to-pdf
+emacs --batch --no-init-file --find-file game-log-event-labeling-technical-challenge.org --funcall org-html-export-to-html
 ```

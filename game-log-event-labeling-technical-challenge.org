@@ -19,7 +19,10 @@ the log.
 
 ** Dribbling
 
-Detect when dribbling is occuring. This is an instantaneous event.
+Detect when dribbling is occuring. This is an instantaneous
+event. Dribbling is defined as one robot is touching the ball with the
+dribbler. The decision is based on the same criteria used in the
+[[https://robocup-ssl.github.io/ssl-rules/sslrules.html#_excessive_dribbling][excessive dribbling rule]].
 
 The following table summarizes the metadata associated with this event.
 

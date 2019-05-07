@@ -82,20 +82,22 @@ ball either enters the goal, or is stopped/deflected by a robot.
 
 * Procedure
 
-During the competition, two of the game logs will be labeled by the
-TC. This same game log will be provided to participants of the
-competition. The TC will attempt to use game logs from games where
-none of the participants in this challenge played. This is to prevent
-an advantage for teams that may have saved additional information in
-their own log files. However, as this cannot be guaranteed, we will
-require all participants to label 2 different game logs, so at most a
-participant in this challenge will have competed in a single game
-log. 
+During the competition, two of the game logs. These game logs will be
+pre-processed by the tools described in the software section
+below. Participants will receive a copy of the pre-processed game
+logs. A ground truth label file for these logs will be created by the
+TC. The TC will attempt to use game logs from games where none of the
+participants in this challenge played. This is to prevent an advantage
+for teams that may have saved additional information in their own log
+files. However, as this cannot be guaranteed, we will require all
+participants to label 2 different game logs, so at most a participant
+in this challenge will have competed in a single game log.
 
 Participants will produce their own set of labels for this game log
-and submit the file to the TC for scoring. The submitted label files
-will be scored using the released scoring program. Participants will
-be ranked by score, with higher scores being better.
+using the provided pre-processed data files. Teams will submit their
+log files to the TC for scoring. The submitted label files will be
+scored using the released scoring program. Participants will be ranked
+by score, with higher scores being better.
 
 Participants can use any approach that is automated to label the
 data. In other words, you must label the data with an algorithm that
@@ -156,28 +158,35 @@ important, as they all contribute to the final score evenly.
 
 * Software Tooling
 
+All software tooling is located in a separate repo: https://github.com/RoboCup-SSL/ssl-rust-tools
+
+Below is an overview of the different parts, but refer to the
+repository for more details on usage and file formats.
+
+** Label Preprocessing
+
+We have provided a simple tool that will process an SSL game log
+file. This will strip unnecessary messages as well as group messages into
+discrete frames that can be labeled.
+
 ** Labeler
 
-Prior to RoboCup 2019, a simple tool for labeling existing game logs
-will be released. This tool will read an SSL Game Log file and save
-labeled events corresponding to times/frames in the log file. In
-addition to the tool, at least one of the public game logs will have
-an example label file. Teams participating the technical challenge are
-encouraged to use the labeling tool to label the other public game
-logs, as well as internal logs generated during their own preparation
-for the competition.
-
+We have provided a simple UI for creating label files. This can be
+used to manually label training data for your algorithms. This will
+also be the tool used by the TC to produce the ground truth labels.
 
 ** Scoring Program
 
-Prior to RoboCup 2019, a scoring tool will be released. This tool will
-compare a "ground-truth" label file with label files produced by
-participants in the technical challenge and spit out a score according
-to the rules defined below.
+We have provided a scoring tool. It will take in two different label
+files, one ground truth and one to be scored, and produce a score for
+each category described above.
 
+* File Format
 
-* Label File Format
+There are two formats: a data file format and a label file format.
 
-This is still being defined and will be released with the software
-labeling and scoring program. The file will be protobuf based, like
-most of the other SSL software.
+The data file is produced by the log preprocessor tool. The label file
+is the list of labels for each of the frames in the data file. Both
+use protobuf files and are designed to support fast random access.
+
+Please refer to the software repo for more information: https://github.com/RoboCup-SSL/ssl-rust-tools

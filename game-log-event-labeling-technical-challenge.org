@@ -126,7 +126,7 @@ utility/producing the file. Clicking on this image will open a PDF
 with clickable links to documentation for the different file formats
 and software utilities.
 
-#+CAPTION: File Formats and Utilities. See for PDF version with clickable links: [[file:ssl-game-log-labeling-figs/file_format_flowchart.pdf][clickable PDF version]]
+#+CAPTION: File Formats and Utilities. See for PDF version with clickable links: [[https://github.com/RoboCup-SSL/technical-challenge-rules/raw/master/ssl-game-log-labeling-figs/file_format_flowchart.pdf][clickable PDF version]]
 #+NAME: fig:file-format-flowchart
 file:ssl-game-log-labeling-figs/file_format_flowchart.png
 

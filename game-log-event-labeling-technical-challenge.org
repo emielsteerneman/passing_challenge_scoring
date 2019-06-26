@@ -117,6 +117,21 @@ participants before they produce their labels. This is to avoid having
 to do sequence alignment of the ground truth and participant label
 files.
 
+** File Formats and Utilities
+
+Figure [[fig:file-format-flowchart]] below shows a flow-chart of the
+various utilities and file formats used in this challenge. The colors
+of the boxes indicate who is responsible for running the
+utility/producing the file. Clicking on this image will open a PDF
+with clickable links to documentation for the different file formats
+and software utilities.
+
+#+CAPTION: File Formats and Utilities. See for PDF version with clickable links: [[file:ssl-game-log-labeling-figs/file_format_flowchart.pdf][clickable PDF version]]
+#+NAME: fig:file-format-flowchart
+file:ssl-game-log-labeling-figs/file_format_flowchart.png
+
+See also: [[Software Tooling]] and [[File Format]]
+
 * Scoring
 
 Scoring differs by event type.

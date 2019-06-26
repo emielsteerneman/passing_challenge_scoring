@@ -2,6 +2,8 @@
 
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
+\usepackage{booktabs}
+\usepackage{hyperref}
 
 \begin{document}
 % Define block styles
@@ -19,27 +21,28 @@
   \node[game-block] (game-logger) {Game Logger};
   \node[tc-block, below of=game-logger] (zcat) {\texttt{zcat}};
   \node[tc-block, below of=zcat, text width=12em] (make-labeler-data-file)
-  {\texttt{make\_labeler\_data\_file}};
+  {\href{https://github.com/RoboCup-SSL/ssl-rust-tools#make_labeler_data_file}{\texttt{make\_labeler\_data\_file}}};
   \node[tc-block, below right of=make-labeler-data-file, node distance=3cm,xshift=1cm] (label-gui)
-  {\texttt{label\_data} GUI};
+  {\href{https://github.com/RoboCup-SSL/ssl-rust-tools#label-data-gui}{\texttt{label\_data} GUI}};
   \node[team-block, below left of=make-labeler-data-file, node
   distance=3cm, xshift=-1cm] (team-labeler) {Your automatic
     labeler};
   \node[tc-block, below of=make-labeler-data-file, node distance=5cm,
   text width=9em]
-  (scorer) {\texttt{score\_label\_file}};
-  \node[below of=scorer] (score) {Score};
+  (scorer) {\href{https://github.com/RoboCup-SSL/ssl-rust-tools#score_label_file}{\texttt{score\_label\_file}}};
+  \node[below of=scorer] (score) {\href{https://github.com/RoboCup-SSL/technical-challenge-rules/blob/master/game-log-event-labeling-technical-challenge.org#scoring}{Score}};
 
-  \path [line] (game-logger) -- node{\texttt{TeamA-vs-TeamB.log.gz}}
+  \path [line] (game-logger) -- node{\href{https://ssl.robocup.org/game-logs/}{\texttt{TeamA-vs-TeamB.log.gz}}}
   (zcat);
   \path [line] (zcat) --
-  node{\texttt{TeamA-vs-TeamB.log}}(make-labeler-data-file);
+  node{\href{https://ssl.robocup.org/game-logs/}{\texttt{TeamA-vs-TeamB.log}}}
+  (make-labeler-data-file);
   \path[line] (make-labeler-data-file) |- (team-labeler);
   \path[line] (make-labeler-data-file) |-
-  node[yshift=-0.5cm]{\texttt{TeamA-vs-TeamB.labeler}} (label-gui);
-  \path[line] (team-labeler) |- node[xshift=-0.5cm, yshift=-0.5cm]{\texttt{TeamA-vs-TeamB.label}} (scorer);
+  node[yshift=-0.5cm]{\href{https://github.com/RoboCup-SSL/ssl-rust-tools\#labeler-data-file}{\texttt{TeamA-vs-TeamB.labeler}}} (label-gui);
+  \path[line] (team-labeler) |- node[xshift=-0.5cm, yshift=-0.5cm]{\href{https://github.com/RoboCup-SSL/ssl-rust-tools\#label-file}{\texttt{TeamA-vs-TeamB.label}}} (scorer);
   \path[line] (label-gui) |-
-  node[xshift=1.75cm]{\texttt{ground-truth-TeamA-vs-TeamB.label}}(scorer);
+  node[xshift=1.75cm]{\href{https://github.com/RoboCup-SSL/ssl-rust-tools#label-file}{\texttt{ground-truth-TeamA-vs-TeamB.label}}}(scorer);
   \path[line] (scorer)-- (score);
 
   % legend
@@ -47,6 +50,22 @@
   \node (legend) at (-5, 6) {\textbf{Legend}};
   \node[game-block] (game-block-legend) at (-5, 5) {Produced During Game};
   \node[tc-block, right of=game-block-legend] (tc-block-legend) {Produced by TC};
-  \node[team-block, right of=tc-block-legend] (team-block-legend) {Produced by Team};
+  \node[team-block, right of=tc-block-legend] (team-block-legend)
+  {Produced by Team};
+
+  % file format links
+  \node (file-formats) at (10, 5.5) {
+    \begin{tabular}{ll}
+      \toprule
+      \textbf{Extension} & \textbf{Documentation}\\
+      \midrule
+      \texttt{.log.gz} & \url{https://ssl.robocup.org/game-logs/}\\
+      \texttt{.log} & \url{https://ssl.robocup.org/game-logs/}\\
+      \texttt{.labeler} & \url{https://github.com/RoboCup-SSL/ssl-rust-tools#labeler-data-file} \\
+      \texttt{.label} & \url{https://github.com/RoboCup-SSL/ssl-rust-tools#label-file}\\
+      \bottomrule
+    \end{tabular}
+  };
+  
 \end{tikzpicture}
 \end{document}

@@ -156,6 +156,24 @@ The IoU is guaranteed to be $\le 1$. All IoU will be added
 up. Additionally, each correct piece of metadata for an event will add
 +0.5 points to the score.
 
+Before calculating scores, event labels will be aligned using the
+Smith–Waterman alignment algorithm with a gap penalty of zero. This is
+to prevent incorrect labels from being scored wrong
+
+Ground Truth labels: 
+  - 0 - 10
+  - 11 - 20
+  - 21 - 30
+
+Team labels:
+  - 0 - 5
+  - 6 - 10
+  - 11 - 20
+
+Without alignment the IoU score would become: 0.5 + 0 + 0.
+
+When in reality the IoU score should be: 0.5 + 1.
+
 ** Final Score
 
 Each category will be ranked individually in order to make each label

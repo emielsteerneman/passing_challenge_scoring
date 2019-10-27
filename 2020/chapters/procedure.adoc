@@ -1,6 +1,66 @@
 == Competition Procedure
 
+Each stage will consist of 3 independent trial run by each
+participant. This is to account for any random effects as well as to
+allow participants to adjust in-between their trials. Scoring will be
+based on overall performance among the trials for each stage, so it is
+important for teams to perform consistently well.
+
+While the particular starting configurations of the ball and the robot
+will be different between stages and trial to trial, the TC member
+running the competition stage will strive to make the starting
+conditions similar between each participant for that trial run.
+
+Each stage will be run independently, although scheduling constraints
+may force each stage to be run back-to-back. In order to make sure
+that teams have similar time to prepare before the challenge, all
+participants in that stage will compete at the same time. Participants
+who are unable to complete a trial for technical reasons will receive
+no points for that trial, but if the technical issues have been
+resolved before their next trial(s) they will be allowed to continue
+participating.
+
+Challenges will be executed on a Division B sized field as described
+in the main SSL rules.
+
 === Grab a Stationary Ball
+
+This stage is designed to be the easiest and demonstrate basic sensing
+and control capabilities. The robot will need to detect a ball on the
+field, navigate to it, and place it on its dribbler. Partial points
+will be awarded, and time will be used for tie-breaking.
+
+For each trial a random robot starting location/orientation and a
+random ball starting position will be chosen. Both the robot and the
+ball will start stationary. There are no restrictions on the starting
+configuration other than that both robot and ball will be somewhere on
+the field.
+
+Before each run the robot will begin in the halt state. A stop command
+will be issued to ready the robot, but the robot should not yet
+move. The run begins with a force start command at which point the
+timer starts and the robot may attempt to complete the task.
+
+The robot may move anywhere on the field within the walls. The ball
+may similarly move anywhere on the field throughout the time. Each
+trial will last a maximum of one minute.
+
+==== Scoring
+
+- Touching the ball with any part of the robot -- +1
+- Touching the ball with the dribbler -- +1
+- Robot stopped with ball touching dribbler at the end of the run :: +1
+
+In the event of a tie between participants for this trial shorter
+times will be used to determine ordering.
+
+==== Differences to 2019 SSL Vision Blackout Challenge
+
+Unlike the 2019 challenge, there are no restrictions placed on the
+relative distances of the robot's start configuration and the
+ball. The total time to complete each trial has also been
+increased. Finally, the ball and robot may go out of bounds on the
+field without ending the trial.
 
 === Scoring on an Empty Goal
 

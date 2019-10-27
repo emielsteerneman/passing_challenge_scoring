@@ -23,7 +23,7 @@ participating.
 Challenges will be executed on a Division B sized field as described
 in the main SSL rules.
 
-=== Grab a Stationary Ball
+=== Stage 1: Grab a Stationary Ball
 
 This stage is designed to be the easiest and demonstrate basic sensing
 and control capabilities. The robot will need to detect a ball on the
@@ -62,8 +62,86 @@ ball. The total time to complete each trial has also been
 increased. Finally, the ball and robot may go out of bounds on the
 field without ending the trial.
 
-=== Scoring on an Empty Goal
+=== Stage 2: Scoring on an Empty Goal
 
-=== Scoring on a Statically Defended Goal
+This stage is designed to build on stage 1, requiring that participant
+robot's can also detect/localize on a goal without the SSL vision
+software. Like stage 1, the robot will need to detect a ball, move to
+it and manipulate it. The robot must put the ball into the goal to
+receive maximum points in the trial.
 
-=== Bringing the Ball to a Specific Location
+The robot and ball will start the same as in Stage 1. This time, the
+goal is for the robot to score on an empty goal. Either goal on the
+field is acceptable. While scoring the robot may not enter the defense
+zone. Unlike regular gameplay the ball does not need to stay on the
+ground in order for the goal to be counted.
+
+Before each run the robot will begin in the halt state. A stop command
+will be issued to ready the robot, but the robot should not yet
+move. The run begins with a force start command at which point the
+timer starts and the robot may attempt to complete the task. Each
+trial will last a maximum of one minute. The trial will stop when the
+goal has occurred or time has elapsed.
+
+==== Scoring
+
+- Touching the ball with any part of the robot -- +1
+- Touching the ball with the dribbler -- +1
+- Ball entered defense zone -- +1
+- Ball entered goal -- +1
+- Robot entered defense zone -- -1
+
+=== Stage 3: Scoring on a Statically Defended Goal
+
+This stage is a more complex version of stage 2. The goal is the same,
+but now there will be a static obstacle placed somewhere inside the
+defense zone. Unlike stage 2, a specific goal will be designated so
+that robots can attempt to score on the statically defended goal.
+
+The obstacle will be approximately cylindrical and of the approximate
+dimensions of a typical SSL robot. The goal is to be able to use local
+sensing to detect opponent robots in a game like scenario.
+
+The robot and ball will start the same as in Stage 1 and Stage
+2. Unlike Stage 2, robots must only score in the designated
+goal. While scoring the robot may not enter the defense zone. This
+time the ball must enter the goal via a flat kick to prevent kicking
+over the obstacle.
+
+==== Scoring
+
+- Touching the ball with any part of the robot -- +1
+- Touching the ball with the dribbler -- +1
+- Ball entered defense zone -- +1
+- Ball entered goal -- +1
+- Robot entered defense zone -- -1
+
+=== Stage 4: Moving to specific coordinates
+
+This stage is designed to demonstrate localization capabilities
+without the use of the global vision system. No ball will be used for
+this stage.
+
+Robots will start at a random location/orientation somewhere on the
+field. Coordinates/angle will be provided to the teams so that they
+can seed their location tracker with an estimate of the starting
+configuration. A destination position will be given to the teams at
+the start of the trial. The robots must drive to that position within
+the time limits. Final orientation does not matter.
+
+Before each run the robot will begin in the halt state. A stop command
+will be issued to ready the robot, but the robot should not yet
+move. The run begins with a force start command at which point the
+timer starts and the robot may attempt to complete the task.
+
+Robots have 1 minute to reach their the defined location. The trial
+will end when the robot has stopped for 10 seconds (after having moved
+at least once since the trial start) or time has elapsed. The 10
+second stoppage will be subtracted from the total time used to
+determine tie-breaking.
+
+==== Scoring
+
+Score is equal to the negative straight line distance between the
+robot's final position and the destination position. In otherwords,
+closer is better.

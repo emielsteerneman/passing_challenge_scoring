@@ -4,6 +4,10 @@ Currently, one technical challenge is planned for the RoboCup 2020
 competition. This challenge will be an extension of the 2019 SSL
 Vision Blackout challenge.
 
+Note: These rules are under development and subject to heavy
+changes. You can use them as an idea to begin brainstorming but do not
+be surprised if they are modified prior to official release.
+
 ## Building
 
 The rules are written in asciidoc format.

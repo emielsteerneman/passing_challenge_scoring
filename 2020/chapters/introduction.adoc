@@ -32,7 +32,7 @@ The competition will consist of four stages:
 1. Grab a stationary ball somewhere on the field
 2. Score with the ball on an empty goal
 3. Score with the ball on a statically defended goal
-4. Bring the ball to a specific location on the field
+4. Move the robot to specific coordinates
 
 Stage 1 is designed to demonstrate basic sensing and locomotion
 capabilities of each participating team.

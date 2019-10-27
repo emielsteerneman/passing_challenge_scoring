@@ -19,6 +19,11 @@ be taller than the rules dictate. The vision markings may also be
 obscured/absent. However, other rules such as maximum speed, kick
 power, ball manipulation strategies, etc. must still be observed.
 
-There are no restrictions on sensor types or onboard processing. We
+There are no restrictions on onboard sensor types. External sensors
+not attached to the robot are not allowed for this competition. We
 encourage teams to be creative in their choice of sensors and their
-strategies for completing each stage of the challenge.
+strategies for completing each stage of the challenge. There is no
+restriction on processing power or where the processing takes
+place. However, keep in mind that bandwidth at competition is limited,
+so solutions requiring streaming large amounts of data wirelessly will
+likely not work.

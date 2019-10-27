@@ -1,1 +1,16 @@
-== Scoring
+== Overall Scoring
+
+As each stage is quite different in terms of scoring, in order to
+determine an overall winner, each stage will be ranked individually by
+total score. Depending on ranking in the category, each participant
+will get an amount of overall points. The amount of points is equal to
+the number of participants - placement in that stage. For example,
+with 7 participants, first place gets 6 points, second place gets 5,
+etc.
+
+Each of the stage points will then be totaled to determine an overall
+winner. Therefore, performance in all stages is considered equal in
+the final scoring.
+
+In the event of a tie, the team with the lowest total time across all
+the stages will win.

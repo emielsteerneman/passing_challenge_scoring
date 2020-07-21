@@ -23,6 +23,20 @@ participating.
 Challenges will be executed on a Division B sized field as described
 in the main SSL rules.
 
+Because the vision patterns are not required, markings may be added to the field
+before a run to help the human judges verify that the robots are reaching the
+desired positions and orientations. Teams should not expect a perfect field with
+no additional markings, however, attempts will be made to keep the marks minimal
+and small so as to not interfere with on-board vision solutions. Additionally,
+teams should expect visual aspects of the field to vary slightly including exact
+color of the carpet and walls, width of line markings, etc.
+
+Each run will start with a halt command. Just before the start a stop command
+will be given, but the robot should not move during the stop command. This is
+just to allow teams a few seconds to initialize any internal state. The run will
+officially start when a force start command is sent. This will start the timer
+and at this point the robot may begin moving.
+
 === Stage 1: Grab a Stationary Ball
 
 This stage is designed to be the easiest and demonstrate basic sensing
@@ -103,10 +117,10 @@ dimensions of a typical SSL robot. The goal is to be able to use local
 sensing to detect opponent robots in a game like scenario.
 
 The robot and ball will start the same as in Stage 1 and Stage
-2. Unlike Stage 2, robots must only score in the designated
-goal. While scoring the robot may not enter the defense zone. This
-time the ball must enter the goal via a flat kick to prevent kicking
-over the obstacle.
+2. Unlike Stage 2, robots must only score in the designated goal. The target
+goal will be on the same half that the robot starts on. While scoring the robot
+may not enter the defense zone. This time the ball must enter the goal via a
+flat kick to prevent kicking over the obstacle.
 
 ==== Scoring
 
@@ -122,12 +136,14 @@ This stage is designed to demonstrate localization capabilities
 without the use of the global vision system. No ball will be used for
 this stage.
 
-Robots will start at a random location/orientation somewhere on the
-field. Coordinates/angle will be provided to the teams so that they
-can seed their location tracker with an estimate of the starting
-configuration. A destination position will be given to the teams at
-the start of the trial. The robots must drive to that position within
-the time limits. Final orientation does not matter.
+Robots will start at a random location/orientation somewhere on the field.
+Coordinates/angle will be manually provided to the teams before a run so that
+they can seed their location tracker with an estimate of the starting
+configuration. A destination position will be manually given to the teams at the
+start of the trial. The robots must drive to that position within the time
+limits. Final orientation does not matter. Teams can enter the initial location
+and goal position however they want (e.g. typing in numbers to a config before
+running, a GUI for clicking approximate location on the field, etc.).
 
 Before each run the robot will begin in the halt state. A stop command
 will be issued to ready the robot, but the robot should not yet

@@ -1,0 +1,29 @@
+== Procedure
+
+Since this challenge must be done remotely, each team is responsible to issue
+the *AutoPlacement commands* through the SSL Game Controller software.  Also,
+the logs of the challenge must be recorded through the SSL Log tools and sent
+to the TC.
+
+The AutoPlacement command includes a *game state*, which can be
+*BallPlacementYellow* or *BallPlacementBlue*, and the requested ball position.
+Before and after those commands the game is in Stop state. AutoPlacement may be
+requested before any referee decision, e.g. before kickoffs, direct or indirect
+freekicks, or penalties.
+
+During ball placement the same rules apply as in Stop state. The only exception
+is that *robots of one team are allowed to approach the ball*, according to the
+team that is mentioned in the BallPlacement state.
+
+The ball is considered *placed successfully* if the following conditions apply:
+
+* No more than 15 seconds passed since the placement command
+* There is no robot within 50cm distance to the ball
+* The ball is stationary
+* The ball is at a position within 10cm radius from the requested position
+
+This means that the *robot has to move away from the ball* once the team
+considers the ball placed correctly.
+
+The starting and desired positions of the ball will be sent to the teams prior
+to the challenge.

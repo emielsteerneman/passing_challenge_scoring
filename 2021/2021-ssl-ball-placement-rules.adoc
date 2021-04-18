@@ -1,0 +1,30 @@
+:imagesdir: images/
+
+= RoboCup 2021 SSL Ball Placement Technical Challenge Rules
+{docdate}
+:toc:
+
+// add icons from fontawesome in a up-to-date version
+ifdef::basebackend-html[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::basebackend-html[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team members, officials, etc. are for simplification and apply to both males and females.
+
+include::chapters/introduction.adoc[]
+
+include::chapters/procedure.adoc[]
+
+include::chapters/evaluation.adoc[]
+
+// A few questions
+// - This challenge must be done with actual robots? (I believe it should)
+// - How many situations should we build?
+// - Similar to the static defenders hardware challenge we also need
+// some tool to determine if the ball is at the correct starting position
+// before it starts being placed, right?

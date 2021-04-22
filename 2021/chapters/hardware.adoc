@@ -1,0 +1,29 @@
+== Hardware/Software Requirements
+
+While we encourage participants to attempt the use of their blackout
+solutions during main competition to help deal with noise and dropouts
+in the global vision system, we recognize that integration into the
+main competition robots is a difficult task. For these reasons, the
+hardware restrictions are relaxed for this technical challenge.
+
+Teams may still remotely control their robots during normal
+competition, however, we encourage teams to experiment with onboard
+processing and autonomy. Regardless of where the control software
+executes, team will not receive data from the SSL vision
+software. Teams will still receive start, stop, and halt ref commands
+which will be used to initiate and stop trials of each stage.
+
+All robot hardware requirements apply to this challenge **EXCEPT** the
+height restrictions and the pattern markings. Participant robots may
+be taller than the rules dictate. The vision markings may also be
+obscured/absent. However, other rules such as maximum speed, kick
+power, ball manipulation strategies, etc. must still be observed.
+
+There are no restrictions on onboard sensor types. External sensors
+not attached to the robot are not allowed for this competition. We
+encourage teams to be creative in their choice of sensors and their
+strategies for completing each stage of the challenge. There is no
+restriction on processing power or where the processing takes
+place. However, keep in mind that bandwidth at competition is limited,
+so solutions requiring streaming large amounts of data wirelessly will
+likely not work.

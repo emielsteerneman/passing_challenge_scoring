@@ -20,31 +20,36 @@ females.
 
 == Goals of the Technical Challenge
 
-Given the goal of preparing Division B teams to participate in Division A
-matches, this technical challenge aims to incentive Division B teams to develop
-one of the skills needed to play a match in Division A. In this case, the
-challenge is to autonomously place the ball using the robots
-("*AutoPlacement*").
+Given the goal of preparing Division B teams to participate in Division A, this
+technical challenge aims to incentive Division B teams to develop one of the
+skills needed to play a match in Division A. In this case, the challenge is to
+autonomously place the ball using the robots ("*AutoPlacement*").
 
 === Participation Requirements
 
 All Division B teams are eligible and *must* participate in this challenge.
 
+Also, this challenge must be performed with *real robots*, i.e., not using the
+simulator. In case of any problems regarding access to your labs, please
+contact the TC/OC.
+
 == Procedure
 
 Since this challenge must be done remotely, each team is responsible to issue
 the *AutoPlacement commands*. This can be easily achieved by using the SSL Game
-Controller with a connected autoRef. The command can be issued using the "*Place
-Ball*" button, located at the bottom left side of the GC GUI.
+Controller (GC) with a connected AutoRef. The command can be issued using the
+"*Place Ball*" button, located at the bottom left side of the GC GUI.
 
-Also, the logs of the challenge must be recorded through the SSL Log tools and
-sent to the TC.
+Also, teams should provide a video stream along with the screen share of the
+GC, which prints the placement timings. In case of any technical issues, the
+logs of the challenge must be recorded through the SSL Log tools and sent to
+the TC.
 
 The AutoPlacement command includes a *game state*, which can be *BallPlacementYellow*
 or *BallPlacementBlue*, and the requested ball position.  Before and after
 those commands the game is in Stop state, therefore, the robots are allowed to
-position themselves wherever they want to, while respecting the Stop state
-rules.
+position themselves wherever they want before the placement starts, while
+following all Stop state rules.
 
 When the robots are done positioning, the AutoPlacement command will be issued
 and the rules for this state can be found in the

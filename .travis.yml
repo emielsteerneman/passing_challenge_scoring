@@ -1,37 +1,33 @@
 if: branch = master
-
 sudo: required
-
 language: python
-
 services:
-  - docker
-
+- docker
 before_install:
-  - mkdir -p output
-  - docker pull asciidoctor/docker-asciidoctor
-
+- mkdir -p output
+- docker pull asciidoctor/docker-asciidoctor
 install:
-  - pip install htmldiffer
-
+- pip install htmldiffer
 script:
-  - docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri 2021-ssl-vision-blackout-rules.adoc
-  - docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf 2021-ssl-vision-blackout-rules.adoc
-
+- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor -a data-uri 2021-ssl-vision-blackout-rules.adoc
+- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor-pdf 2021-ssl-vision-blackout-rules.adoc
 after_error:
-  - docker logs asciidoc-to-html
-  - docker logs asciidoc-to-pdf
-
+- docker logs asciidoc-to-html
+- docker logs asciidoc-to-pdf
 after_failure:
-  - docker logs asciidoc-to-html
-  - docker logs asciidoc-to-pdf
-
+- docker logs asciidoc-to-html
+- docker logs asciidoc-to-pdf
 after_script:
-  - git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
-  - cd $TRAVIS_BUILD_DIR/gh-pages
-  - cp ../*.html ../*.pdf .
-  - git config user.name "TravisCI"
-  - git config user.email "build-pipeline@travis-ci.org"
-  - git add *.html *.pdf
-  - git commit -m "Update GitHub Pages"
-  - git push "https://${GH_TOKEN}@${GH_REF}" gh-pages
+- git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
+- cd $TRAVIS_BUILD_DIR/gh-pages
+- cp ../*.html ../*.pdf .
+- git config user.name "TravisCI"
+- git config user.email "build-pipeline@travis-ci.org"
+- git add *.html *.pdf
+- git commit -m "Update GitHub Pages"
+- git push "https://${GH_TOKEN}@${GH_REF}" gh-pages
+env:
+  global:
+    secure: 3AwJqCZH0y68bIlxnjHNqgSKpATdGTS9/hjXdi1dxXeK0RvhK6DSzybekFFYOCqVPEamJYPTmfCyArCk/zv6Rpmz5lToUDe5UdRgqqcJwShLh5DayEKihrsqG4KX8DAcfUPPCcxTaciwz+WT0Z1iAcHzOlUsY5h6kbxTAbpwnxFvC9/+W11WvQrhZuUTysQEKjXTa3+D1mWWM/jm25Cp3FArxY3beFBHfyS71AYg19Kr+dW8Gbxxe8Jx4MQDXmcZJeqbWnk9m7dnsgNu0c0kybk34J+BHd1/7vs2W+WVYzTUbeHWbCS/B+uEaxSmBC2W3NSqD4F6TSHgBi6ChjYGCmDyNFJz+rNEG/neeBRzZyaMfZi3mXGE5uGQO+YBFIxsapJGoFjMXxbaCcm3wrU86aaZABWR0nRaCLgFGnaoFkwior5Yw9p2AHZ1hRgjeNE4p22bYfL1hQ4XozR0Up7PuQcN1MWbUbR1ZyXswxDWH0hkciunXuSaJ6ewlAz84Q+gGWyyhs3oG3HI69HMVVBxPVn8DPoMWysi1gUc/njJpR6ibjm82XbsbJdQXyeWLsiYMk9nOGBfjTqEMGAMOOX6R7Vm8uCIiob3B9JBnsRI0EJPcwPgk6LHw1VJNJ6pVSAXGpIvd0Z7WdP7WMwNQ+IBOGu46DON1b8b8XMBjc6+IHw=

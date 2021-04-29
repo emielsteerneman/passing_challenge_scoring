@@ -11,6 +11,10 @@ script:
   asciidoctor -a data-uri 2021-ssl-vision-blackout-rules.adoc
 - docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
   asciidoctor-pdf 2021-ssl-vision-blackout-rules.adoc
+- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor -a data-uri 2021-ssl-ball-placement-rules.adoc
+- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor-pdf 2021-ssl-ball-placement-rules.adoc
 after_error:
 - docker logs asciidoc-to-html
 - docker logs asciidoc-to-pdf

@@ -6,8 +6,6 @@ services:
 before_install:
 - mkdir -p output
 - docker pull asciidoctor/docker-asciidoctor
-install:
-- pip install htmldiffer
 script:
 - docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
   asciidoctor -a data-uri 2021-ssl-vision-blackout-rules.adoc

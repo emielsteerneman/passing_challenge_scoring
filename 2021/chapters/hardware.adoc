@@ -1,0 +1,49 @@
+== Hardware/Software Requirements
+
+=== Robot Hardware
+
+While we encourage participants to attempt the use of their blackout
+solutions during main competition to help deal with noise and dropouts
+in the global vision system, we recognize that integration into the
+main competition robots is a difficult task. For these reasons, the
+hardware restrictions are relaxed for this technical challenge.
+
+Teams may still remotely control their robots during normal
+competition, however, we encourage teams to experiment with onboard
+processing and autonomy. Regardless of where the control software
+executes, team will not receive data from the SSL vision
+software. Teams will still receive start, stop, and halt ref commands
+which will be used to initiate and stop trials of each stage.
+
+All robot hardware requirements apply to this challenge **EXCEPT** the height
+restrictions and the pattern markings. Participant robots may be taller than the
+rules dictate. The vision pattern on-top of the robot *MUST* be covered or
+removed to guarantee that ssl-vision is not being utilized. However, other rules
+such as maximum speed, kick power, ball manipulation strategies, etc. must still
+be observed.
+
+There are no restrictions on onboard sensor types. External sensors
+not attached to the robot are not allowed for this competition. We
+encourage teams to be creative in their choice of sensors and their
+strategies for completing each stage of the challenge. There is no
+restriction on processing power or where the processing takes
+place. However, keep in mind that bandwidth at competition is limited,
+so solutions requiring streaming large amounts of data wirelessly will
+likely not work.
+
+=== Field Setup
+
+The technical challenge has the same requirements for the remote field as the
+2021 hardware challenges. The field must be 4x3m or larger. The field will need
+to have a goal of 0.7m wide, just as in the hardware challenges. The field will
+need to have a penalty area of 0.8x2m in size just as in the hardware
+challenges. Additionally participants will require a golf ball and an additional
+robot that can act as a static defender for stage 3.
+
+Participants should *NOT* modify the goal or field to aid in navigation or
+recognition of objects. This includes things like visual fiduciary markers, IR
+reflectors, non-standard color splotches, etc. Teams should strive to have as
+close to a regulation Division B field as possible. The TC members reserve the
+right to ask teams to sweep the camera to show that additional markers have not
+been added off-frame and may require certain objects/signs/etc. to be covered up
+or removed during the runs.

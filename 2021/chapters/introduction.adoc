@@ -1,0 +1,59 @@
+== Goals of the Technical Challenge
+
+The goal of this technical challenge is to incentivize teams to
+explore local sensing and processing rather than the typical SSL
+approach of an off-board computer and a global set of cameras sensing
+the environment. While the main league still uses the standard SSL
+vision software with overhead cameras, there is desire to reduce the
+reliance on this vision system. We believe that not only will more
+distributed sensing and processing on robots help advance research in
+this league, it will provide a benefit to teams who take this
+approach.
+
+Overall, this technical challenge will focus on demonstrating standard
+SSL soccer skills (e.g. locomotion and ball manipulation) in without
+the ssl-vision software running. The challenge is split into multiple
+stages designed to have different levels of difficulty, with each
+stage building on the skills of the prior.
+
+=== Participation Requirements
+
+Anyone participating in SSL RoboCup is eligible to participate in this
+challenge. Anyone participating must publish their approach to solving
+this technical challenege after the competition has concluded. The
+goal of forcing publication is that other participants in the league
+and the wider research community can learn and benefit from those that
+participated.
+
+=== Overview of Competition Stages
+
+The competition will consist of four stages:
+
+1. Grab a stationary ball somewhere on the field
+2. Score with the ball on an empty goal
+3. Score with the ball on a statically defended goal
+4. +++<del>+++Move the robot to specific coordinates+++</del>+++
+
+Stage 1 is designed to demonstrate basic sensing and locomotion
+capabilities of each participating team.
+
+Stage 2 is designed to demonstrate similar skills to stage 1 plus the
+ability to localize and aim at a known target on the field.
+
+Stage 3 builds on stage 2 where now the participant's robot must
+detect which portion of the goal is unblocked when aiming and
+shooting.
+
++++<del>+++Stage 4 demonstrates ball manipulation skills and strong localization
+abilities without the use of the global vision system.+++</del>+++ Stage 4 has
+been removed for the remote competition, as each team may have a different field
+setup with different coordinate systems.
+
+We believe that teams who can complete even a single one of these
+skills without the vision system information will have an advantage in
+the main competition over those teams who rely solely on the global
+vision system.
+
+The following sections describe the hardware requirements, and
+procedures of each stage. The final chapter describes overall scoring
+that will be used to determine the winner.

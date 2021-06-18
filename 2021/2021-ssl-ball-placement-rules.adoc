@@ -3,7 +3,7 @@
 = RoboCup 2021 SSL Ball Placement Technical Challenge Rules
 {docdate}
 :toc:
-:toclevels: 3
+:sectnumlevels: 0
 
 // add icons from fontawesome in a up-to-date version
 ifdef::basebackend-html[]

@@ -1,8 +1,9 @@
-:imagesdir: images/
+:source-highlighter: highlightjs
 
 = RoboCup 2021 SSL Ball Placement Technical Challenge Rules
 {docdate}
 :toc:
+:toclevels: 3
 
 // add icons from fontawesome in a up-to-date version
 ifdef::basebackend-html[]
@@ -65,19 +66,10 @@ which prints the placement timings. The logs of the challenge can also be
 recorded through the SSL Log tools and sent to the TC, in case of any technical
 issues.
 
-Teams should provide a video stream along with the screen share of the GC,
-which prints the placement timings. The logs of the challenge can also be
-recorded through the SSL Log tools and sent to the TC, in case of any technical
-issues.
-
-The starting and desired positions of the ball will be sent to the teams prior
-to the challenge. The positions are formated in a json file similar to the
-hardware challenges, an example can be seen below:
-
-link:ball_placement_scenarios/example.json[]
-
-The first object is the starting position, and the second is the position where
-the ball must be placed.
+The starting and desired positions of the ball can be seen in the Appendix at
+the end of the document. The positions are formated in a json file similar to
+the hardware challenges.  The "ball" is the starting position, and the
+"ball_placement" is the position where the ball must be placed.
 
 *Teams are allowed to use up to 6 robots*.
 
@@ -93,3 +85,80 @@ the team that was capable of placing the balls in the least amount of time
 wins.
 
 The TC reserves the right to change the evaluation procedure.
+
+[appendix]
+
+== Scenarios for Ball Placement
+
+=== Scenario 1
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc1.json[]
+----
+
+image::ball_placement_scenarios/scenario1.svg[Interactive,700,opts=interactive]
+
+=== Scenario 2
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc2.json[]
+----
+
+image::ball_placement_scenarios/scenario2.svg[Interactive,700,opts=interactive]
+
+=== Scenario 3
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc3.json[]
+----
+
+image::ball_placement_scenarios/scenario3.svg[Interactive,700,opts=interactive]
+
+=== Scenario 4
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc4.json[]
+----
+
+image::ball_placement_scenarios/scenario4.svg[Interactive,700,opts=interactive]
+
+=== Scenario 5
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc5.json[]
+----
+
+image::ball_placement_scenarios/scenario5.svg[Interactive,700,opts=interactive]
+
+=== Scenario 6
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc6.json[]
+----
+
+image::ball_placement_scenarios/scenario6.svg[Interactive,700,opts=interactive]
+
+=== Scenario 7
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc7.json[]
+----
+
+image::ball_placement_scenarios/scenario7.svg[Interactive,700,opts=interactive]
+
+=== Scenario 8
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc8.json[]
+----
+
+image::ball_placement_scenarios/scenario8.svg[Interactive,700,opts=interactive]
+

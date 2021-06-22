@@ -71,6 +71,11 @@ the end of the document. The positions are formated in a json file similar to
 the hardware challenges.  The "ball" is the starting position, and the
 "ball_placement" is the position where the ball must be placed.
 
+In scenarios 6 and 7, the ball must be placed with an **Y** value, such that
+the robot cannot get behind it. Since teams might have different extra space
+between the field boundaries and the wall, the json file can be edited to match
+this criteria.
+
 *Teams are allowed to use up to 6 robots*.
 
 == Evaluation

@@ -44,6 +44,7 @@ follows:
 
 * The Game Controller, SSL Vision and at least one Auto Referee must be already
   running
+* Make sure the game state is First Half or Second Half
 * The *SSL Hardware Challenge Tool* must be executed with the corresponding
   json file and challenge number (*5*)
 * The ball must be placed in the indicated position
@@ -72,9 +73,9 @@ the hardware challenges.  The "ball" is the starting position, and the
 "ball_placement" is the position where the ball must be placed.
 
 In scenarios 6 and 7, the ball must be placed with an **Y** value, such that
-the robot cannot get behind it. Since teams might have different extra space
-between the field boundaries and the wall, the json file can be edited to match
-this criteria.
+the robot cannot get between the ball and the wall. Since teams might have
+different extra space between the field boundaries and the wall, the json file
+can be edited to match this criteria.
 
 *Teams are allowed to use up to 6 robots*.
 

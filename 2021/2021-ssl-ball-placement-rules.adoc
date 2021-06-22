@@ -81,7 +81,8 @@ can be edited to match this criteria.
 
 == Evaluation
 
-Every team places the ball in the same situations.
+Every team places the ball in the same scenarios, and there are 3 tries per
+scenario.
 
 In total, there will be *8 scenarios* in this challenge. The order of the
 scenarios will be chosen randomly, just like the hardware challenges.

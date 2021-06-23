@@ -1,50 +1,25 @@
-== Stages
+[appendix]
 
-The startings position for each stage will be chosen randomly from the
-following list, for each try, a different type of position should be used.
+== Stage Scenarios
 
+The scenarios for each stage can be seen below, the team has 3 tries in each
+scenario and there are 3 scenarios per stage, the first one being the easiest,
+and the last one being the hardest.
 
-.Starting position table - Close to goal
-[format="csv", separator=";", options="header"]
-|===================================================
+=== Stage 1
 
-N; X [mm];Y [mm]; Object
+image::../vision_blackout_scenarios/stage1_a.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage1_b.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage1_c.svg[Interactive,700,opts=interactive]
 
-1;-2700;-1600; Ball
-1;-2000;-1900; Robot
-2;-2400;1500; Ball
-2;-1500;1800; Robot
-3;-1900;-500; Ball
-3;-1800;800; Robot
+=== Stage 2
 
-|===================================================
+image::../vision_blackout_scenarios/stage2_a.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage2_b.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage2_c.svg[Interactive,700,opts=interactive]
 
-.Starting position table - Far from the goal
-[format="csv", separator=";", options="header"]
-|===================================================
+=== Stage 3
 
-N; X [mm];Y [mm]; Object
-
-4;-1000;1300; Ball
-4;-500;500; Robot
-5;-900;-800; Ball
-5;-400;100; Robot
-6;-800;-1400; Ball
-6;-1500;-1900; Robot
-
-|===================================================
-
-.Starting position table - Close to the corner
-[format="csv", separator=";", options="header"]
-|===================================================
-
-N; X [mm];Y [mm]; Object
-
-7;-2800;1800; Ball
-7;-2400;1700; Robot
-8;-2700;-1700; Ball
-8;-2200;-1450; Robot
-9;-2750;1750; Ball
-9;-2200;1350; Robot
-
-|===================================================
+image::../vision_blackout_scenarios/stage3_a.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage3_b.svg[Interactive,700,opts=interactive]
+image::../vision_blackout_scenarios/stage3_c.svg[Interactive,700,opts=interactive]

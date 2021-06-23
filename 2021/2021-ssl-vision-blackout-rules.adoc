@@ -4,6 +4,7 @@
 = RoboCup 2021 SSL Vision Blackout Technical Challenge Rules
 {docdate}
 :toc:
+:sectnumlevels: 0
 
 // add icons from fontawesome in a up-to-date version
 ifdef::basebackend-html[]

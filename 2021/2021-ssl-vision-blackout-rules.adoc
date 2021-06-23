@@ -24,3 +24,5 @@ include::chapters/hardware.adoc[]
 include::chapters/procedure.adoc[]
 
 include::chapters/scoring.adoc[]
+
+include::chapters/stages.adoc[]

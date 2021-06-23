@@ -1,8 +1,9 @@
-:imagesdir: images/
+:source-highlighter: highlightjs
 
 = RoboCup 2021 SSL Ball Placement Technical Challenge Rules
 {docdate}
 :toc:
+:sectnumlevels: 0
 
 // add icons from fontawesome in a up-to-date version
 ifdef::basebackend-html[]
@@ -35,38 +36,136 @@ contact the TC/OC.
 
 == Procedure
 
-Since this challenge must be done remotely, each team is responsible to issue
-the *AutoPlacement commands*. This can be easily achieved by using the SSL Game
-Controller (GC) with a connected AutoRef. The command can be issued using the
-"*Place Ball*" button, located at the bottom left side of the GC GUI.
+Similarly to the hardware challenges, the Ball Placement Technical Challenge
+will also be executed using the
+link:https://github.com/RoboCup-SSL/ssl-hardware-challenge-tool[SSL Hardware Challenge Tool].
+This challenge is the number *5* in the tool. Therefore, the procedure is as
+follows:
 
-Also, teams should provide a video stream along with the screen share of the
-GC, which prints the placement timings. In case of any technical issues, the
-logs of the challenge must be recorded through the SSL Log tools and sent to
-the TC.
+* The Game Controller, SSL Vision and at least one Auto Referee must be already
+  running
+* Make sure the game state is First Half or Second Half
+* The *SSL Hardware Challenge Tool* must be executed with the corresponding
+  json file and challenge number (*5*)
+* The ball must be placed in the indicated position
+* The robot(s) must be placed on the middle line of the field
+* When all positions are correct, the challenge will start when the user
+  presses *Enter*
+* A *Stop* command will be issued for *2 seconds*
+* Then, the *AutoPlacement* command will be issued
 
-The AutoPlacement command includes a *game state*, which can be *BallPlacementYellow*
-or *BallPlacementBlue*, and the requested ball position.  Before and after
-those commands the game is in Stop state, therefore, the robots are allowed to
+The AutoPlacement command includes a *game state*, which will be
+*BallPlacementBlue*, and the requested ball position. Before and after those
+commands the game is in Stop state, therefore, the robots are allowed to
 position themselves wherever they want before the placement starts, while
 following all Stop state rules.
 
-When the robots are done positioning, the AutoPlacement command will be issued
-and the rules for this state can be found in the
+The rules for the AutoPlacement can be found in the
 link:https://robocup-ssl.github.io/ssl-rules/sslrules.html#_ball_placement[rule book].
+Teams should provide a video stream along with the screen share of the GC,
+which prints the placement timings. The logs of the challenge can also be
+recorded through the SSL Log tools and sent to the TC, in case of any technical
+issues.
 
-The starting and desired positions of the ball will be sent to the teams prior
-to the challenge.
+The starting and desired positions of the ball can be seen in the Appendix at
+the end of the document. The positions are formated in a json file similar to
+the hardware challenges.  The "ball" is the starting position, and the
+"ball_placement" is the position where the ball must be placed.
 
-Teams are allowed to use up to 6 robots.
+In scenarios 6 and 7, the ball must be placed with an **Y** value, such that
+the robot cannot get between the ball and the wall. Since teams might have
+different extra space between the field boundaries and the wall, the json file
+can be edited to match this criteria.
+
+*Teams are allowed to use up to 6 robots*.
 
 == Evaluation
 
-Every team places the ball in the same situations. The number and kind of
-situations will be determined by the TC.
+Every team places the ball in the same scenarios, and there are 3 tries per
+scenario.
+
+In total, there will be *8 scenarios* in this challenge. The order of the
+scenarios will be chosen randomly, just like the hardware challenges.
 
 A point will be awarded for every successfully placed ball. In case of ties,
 the team that was capable of placing the balls in the least amount of time
 wins.
 
 The TC reserves the right to change the evaluation procedure.
+
+[appendix]
+
+== Scenarios for Ball Placement
+
+=== Scenario 1
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc1.json[]
+----
+
+image::ball_placement_scenarios/scenario1.svg[Interactive,700,opts=interactive]
+
+=== Scenario 2
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc2.json[]
+----
+
+image::ball_placement_scenarios/scenario2.svg[Interactive,700,opts=interactive]
+
+=== Scenario 3
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc3.json[]
+----
+
+image::ball_placement_scenarios/scenario3.svg[Interactive,700,opts=interactive]
+
+=== Scenario 4
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc4.json[]
+----
+
+image::ball_placement_scenarios/scenario4.svg[Interactive,700,opts=interactive]
+
+=== Scenario 5
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc5.json[]
+----
+
+image::ball_placement_scenarios/scenario5.svg[Interactive,700,opts=interactive]
+
+=== Scenario 6
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc6.json[]
+----
+
+image::ball_placement_scenarios/scenario6.svg[Interactive,700,opts=interactive]
+
+=== Scenario 7
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc7.json[]
+----
+
+image::ball_placement_scenarios/scenario7.svg[Interactive,700,opts=interactive]
+
+=== Scenario 8
+
+[source,json]
+----
+include::ball_placement_scenarios/bptcsc8.json[]
+----
+
+image::ball_placement_scenarios/scenario8.svg[Interactive,700,opts=interactive]
+

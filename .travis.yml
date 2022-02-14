@@ -7,17 +7,13 @@ before_install:
 - mkdir -p output
 - docker pull asciidoctor/docker-asciidoctor
 script:
-- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor -a data-uri 2021-ssl-vision-blackout-rules.adoc
-- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor-pdf 2021-ssl-vision-blackout-rules.adoc
-- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor -a data-uri 2021-ssl-ball-placement-rules.adoc
-- docker run -v $TRAVIS_BUILD_DIR/2021:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor-pdf 2021-ssl-ball-placement-rules.adoc
+- docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor -a data-uri 2022-ssl-ball-placement-rules.adoc
+- docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor
+  asciidoctor-pdf 2022-ssl-ball-placement-rules.adoc
 - git clone https://github.com/RoboCup-SSL/technical-challenge-rules.git --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
 - cd $TRAVIS_BUILD_DIR/gh-pages
-- cp $TRAVIS_BUILD_DIR/2021/*.html $TRAVIS_BUILD_DIR/2021/*.pdf .
+- cp $TRAVIS_BUILD_DIR/2022/*.html $TRAVIS_BUILD_DIR/2022/*.pdf .
 - git config user.name "TravisCI"
 - git config user.email "build-pipeline@travis-ci.org"
 - git add *.html *.pdf

@@ -2,12 +2,8 @@
 
 Currently, two technical challenges are planned for the RoboCup 2021
 competition. The first challenge will be an extension of the 2019 SSL Vision
-Blackout challenge. The second will be a autonomous ball placement challenge
-for Divison B only teams.
-
-Note: These rules are under development and subject to heavy
-changes. You can use them as an idea to begin brainstorming but do not
-be surprised if they are modified prior to official release.
+Blackout challenge. The second will be an autonomous ball placement challenge
+for division B only teams.
 
 ## Building
 

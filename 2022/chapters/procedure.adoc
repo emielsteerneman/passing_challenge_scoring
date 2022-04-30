@@ -164,10 +164,10 @@ statically defended goal.
 The obstacle will be a black cylindrical and of the approximate
 dimensions of a typical SSL robot. The goal is to be able to use local
 sensing to recognize ally and opponent robots in a game like scenario, and 
-also pass and receive ball withou external sensors.
+also pass and receive ball without external sensors.
 
 The passing robot and ball will start the same as in Stage 3. The receiver
-robot will start at a random position in opposite quarant (at X axis) of 
+robot will start at a random position in opposite quadrant (at X axis) of 
 passing robot. The target goal will be on the same half that the robot starts on. 
 While scoring the receiver robot may not enter the defense zone. This time the 
 ball must enter the goal via a flat kick to prevent kicking over the obstacle.
@@ -175,7 +175,6 @@ ball must enter the goal via a flat kick to prevent kicking over the obstacle.
 ==== Scoring
 
 - Touching the ball with any part of the passing robot -- +1
-- Touching the ball with the passing robot dribbler -- +1
 - Touching the ball with the passing robot dribbler -- +1
 - Pass hits receiver robot -- +1
 - Pass hits enemy robot -- -1

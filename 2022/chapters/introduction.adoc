@@ -32,9 +32,8 @@ The competition will consist of five stages:
 
 1. Grab a stationary ball somewhere on the field
 2. Score with the ball on an empty goal
-3. Score with the ball on a statically defended goal
-4. Move the robot to specific coordinates
-5. Score an indirect goal (two robots needed)
+3. Move the robot to specific coordinates
+4. Score an indirect goal (two robots needed)
 
 Stage 1 is designed to demonstrate basic sensing and locomotion
 capabilities of each participating team.
@@ -42,14 +41,10 @@ capabilities of each participating team.
 Stage 2 is designed to demonstrate similar skills to stage 1 plus the
 ability to localize and aim at a known target on the field.
 
-Stage 3 builds on stage 2 where now the participant's robot must
-detect which portion of the goal is unblocked when aiming and
-shooting.
+Stage 3 demonstrates strong localization abilities without the use of 
+the global vision system.
 
-Stage 4 demonstrates ball manipulation skills and strong localization
-abilities without the use of the global vision system.
-
-Stage 5 is designed to demonstrate coordination skill of multiple robots
+Stage 4 is designed to demonstrate coordination skill of multiple robots
 without vision. The robots must colaborate to pass and score the goal.
 
 We believe that teams who can complete even a single one of these

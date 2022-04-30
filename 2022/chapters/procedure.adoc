@@ -97,32 +97,7 @@ goal has occurred or time has elapsed.
 - Ball entered goal -- +1
 - Robot entered defense zone -- -1
 
-=== Stage 3: Scoring on a Statically Defended Goal
-
-This stage is a more complex version of stage 2. The goal is the same,
-but now there will be a static obstacle placed somewhere inside the
-defense zone. Unlike stage 2, a specific goal will be designated so
-that robots can attempt to score on the statically defended goal.
-
-The obstacle will be approximately cylindrical and of the approximate
-dimensions of a typical SSL robot. The goal is to be able to use local
-sensing to detect opponent robots in a game like scenario.
-
-The robot and ball will start the same as in Stage 1 and Stage
-2. Unlike Stage 2, robots must only score in the designated goal. The target
-goal will be on the same half that the robot starts on. While scoring the robot
-may not enter the defense zone. This time the ball must enter the goal via a
-flat kick to prevent kicking over the obstacle.
-
-==== Scoring
-
-- Touching the ball with any part of the robot -- +1
-- Touching the ball with the dribbler -- +1
-- Ball entered defense zone -- +1
-- Ball entered goal -- +1
-- Robot entered defense zone -- -1
-
-=== Stage 4: Moving to specific coordinates
+=== Stage 3: Moving to specific coordinates
 
 This stage is designed to demonstrate localization capabilities
 without the use of the global vision system. No ball will be used for
@@ -154,30 +129,28 @@ Score is equal to the negative straight line distance between the
 robot's final position and the destination position. In otherwords,
 closer is better.
 
-=== Stage 5: Scoring an Indirect Goal
+=== Stage 4: Scoring an Indirect Goal
 
 This stage is a more complex version of stage 3 and 4. The goal is the same,
-but now robot must pass the ball to a second robot. Like stage 3, a specific 
-goal will be designated so the receiver robot can attempt to score on the 
-statically defended goal.
+but now robot must pass the ball to a second robot. Like stage 2, a specific 
+goal will be designated so the receiver robot can attempt to score on the goal.
 
-The obstacle will be a black cylindrical and of the approximate
-dimensions of a typical SSL robot. The goal is to be able to use local
-sensing to recognize ally and opponent robots in a game like scenario, and 
-also pass and receive ball without external sensors.
+The goal is to be able to use local sensing to recognize ally and opponent robots
+in a game like scenario, and pass and receive ball without external sensors.
 
-The passing robot and ball will start the same as in Stage 3. The receiver
+The passing robot and ball will start the same as in Stage 2. The receiver
 robot will start at a random position in opposite quadrant (at X axis) of 
 passing robot. The target goal will be on the same half that the robot starts on. 
-While scoring the receiver robot may not enter the defense zone. This time the 
-ball must enter the goal via a flat kick to prevent kicking over the obstacle.
+While scoring any robot may not enter the defense zone.
+
+Optionally, in any trial a team may choose to put a obstable in the middle of the 
+scoring goal, and in that case the goal points will be duplicated.
 
 ==== Scoring
 
 - Touching the ball with any part of the passing robot -- +1
 - Touching the ball with the passing robot dribbler -- +1
 - Pass hits receiver robot -- +1
-- Pass hits enemy robot -- -1
 - Pass hits the receiver robot dribbler -- +1
 - Ball entered defense zone -- +1
 - Ball entered goal -- +1

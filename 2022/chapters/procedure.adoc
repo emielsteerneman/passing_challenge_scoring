@@ -143,9 +143,6 @@ robot will start at a random position in opposite quadrant (at X axis) of
 passing robot. The target goal will be on the same half that the robot starts on. 
 While scoring any robot may not enter the defense zone.
 
-Optionally, in any trial a team may choose to put a obstable in the middle of the 
-scoring goal, and in that case the goal points will be duplicated.
-
 ==== Scoring
 
 - Touching the ball with any part of the passing robot -- +1

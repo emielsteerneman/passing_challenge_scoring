@@ -1,6 +1,6 @@
 == Competition Procedure
 
-Each stage will consist of 3 independent trial run by each
+Each stage will consist of 3 independent trials run by each
 participant. This is to account for any random effects as well as to
 allow participants to adjust in-between their trials. Scoring will be
 based on overall performance among the trials for each stage, so it is
@@ -17,7 +17,7 @@ that teams have similar time to prepare before the challenge, all
 participants in that stage will compete at the same time. Participants
 who are unable to complete a trial for technical reasons will receive
 no points for that trial, but if the technical issues have been
-resolved before their next trial(s) they will be allowed to continue
+resolved before their next trial(s), they will be allowed to continue
 participating.
 
 Challenges will be executed on a Division B sized field as described
@@ -26,16 +26,16 @@ in the main SSL rules.
 Because the vision patterns are not required, markings may be added to the field
 before a run to help the human judges verify that the robots are reaching the
 desired positions and orientations. Teams should not expect a perfect field with
-no additional markings, however, attempts will be made to keep the marks minimal
+no additional markings. However, attempts will be made to keep the marks minimal
 and small so as to not interfere with on-board vision solutions. Additionally,
-teams should expect visual aspects of the field to vary slightly including exact
-color of the carpet and walls, width of line markings, etc.
+teams should expect visual aspects of the field to vary slightly, including the exact
+color of the carpet and walls, the width of line markings, etc.
 
-Each run will start with a halt command. Just before the start a stop command
+Each run will start with a halt command. Just before the start, a stop command
 will be given, but the robot should not move during the stop command. This is
 just to allow teams a few seconds to initialize any internal state. The run will
 officially start when a force start command is sent. This will start the timer
-and at this point the robot may begin moving.
+, and at this point, the robot may begin moving.
 
 === Stage 1: Grab a Stationary Ball
 
@@ -44,16 +44,16 @@ and control capabilities. The robot will need to detect a ball on the
 field, navigate to it, and place it on its dribbler. Partial points
 will be awarded, and time will be used for tie-breaking.
 
-For each trial a random robot starting location/orientation and a
+For each trial, a random robot starting location/orientation and a
 random ball starting position will be chosen. Both the robot and the
 ball will start stationary. There are no restrictions on the starting
 configuration other than that both robot and ball will be somewhere on
 the field.
 
-Before each run the robot will begin in the halt state. A stop command
+Before each run, the robot will begin in the halt state. A stop command
 will be issued to ready the robot, but the robot should not yet
-move. The run begins with a force start command at which point the
-timer starts and the robot may attempt to complete the task.
+move. The run starts with a force start command, at which point the
+timer starts, and the robot may attempt to complete the task.
 
 The robot may move anywhere on the field within the walls. The ball
 may similarly move anywhere on the field throughout the time. Each
@@ -63,15 +63,15 @@ trial will last a maximum of one minute.
 
 - Touching the ball with any part of the robot -- +1
 - Touching the ball with the dribbler -- +1
-- Robot stopped with ball touching dribbler at the end of the run :: +1
+- Robot stopped with the ball touching the dribbler at the end of the run-- +1
 
 In the event of a tie between participants for this trial shorter
-times will be used to determine ordering.
+times will be used to determine the ordering.
 
 === Stage 2: Scoring on an Empty Goal
 
 This stage is designed to build on stage 1, requiring that participant
-robot's can also detect/localize on a goal without the SSL vision
+robots can also detect/localize on a goal without the SSL vision
 software. Like stage 1, the robot will need to detect a ball, move to
 it and manipulate it. The robot must put the ball into the goal to
 receive maximum points in the trial.
@@ -79,12 +79,12 @@ receive maximum points in the trial.
 The robot and ball will start the same as in Stage 1. This time, the
 goal is for the robot to score on an empty goal. Either goal on the
 field is acceptable. While scoring the robot may not enter the defense
-zone. Unlike regular gameplay the ball does not need to stay on the
+zone. Unlike regular gameplay, the ball does not need to stay on the
 ground in order for the goal to be counted.
 
 Before each run the robot will begin in the halt state. A stop command
 will be issued to ready the robot, but the robot should not yet
-move. The run begins with a force start command at which point the
+move. The run begins with a force start command, at which point the
 timer starts and the robot may attempt to complete the task. Each
 trial will last a maximum of one minute. The trial will stop when the
 goal has occurred or time has elapsed.
@@ -103,45 +103,48 @@ This stage is designed to demonstrate localization capabilities
 without the use of the global vision system. No ball will be used for
 this stage.
 
-Robots will start at a random location/orientation somewhere on the field.
-Coordinates/angle will be manually provided to the teams before a run so that
-they can seed their location tracker with an estimate of the starting
-configuration. A destination position will be manually given to the teams at the
+Robots will start at a random location/orientation somewhere on the field. And teams
+will receive an area of start (not a precise coordinate) before a run, so they 
+can seed their location tracker with an estimate of the starting configuration.
+A destination position will be manually given to the teams at the
 start of the trial. The robots must drive to that position within the time
 limits. Final orientation does not matter. Teams can enter the initial location
 and goal position however they want (e.g. typing in numbers to a config before
-running, a GUI for clicking approximate location on the field, etc.).
+running, a GUI for clicking an approximate location on the field, etc.). 
+After the team enters the initial config, the robot will be randomly placed
+in the given area.
 
-Before each run the robot will begin in the halt state. A stop command
+Before each run, the robot will begin in the halt state. A stop command
 will be issued to ready the robot, but the robot should not yet
-move. The run begins with a force start command at which point the
+move. The run begins with a force start command, at which point the
 timer starts and the robot may attempt to complete the task.
 
-Robots have 1 minute to reach their the defined location. The trial
+Robots have 1 minute to reach the defined location. The trial
 will end when the robot has stopped for 10 seconds (after having moved
-at least once since the trial start) or time has elapsed. The 10
-second stoppage will be subtracted from the total time used to
+at least once since the trial start) or the time has elapsed. The 10
+seconds stoppage will be subtracted from the total time used to
 determine tie-breaking.
 
 ==== Scoring
 
 Score is equal to the negative straight line distance between the
-robot's final position and the destination position. In otherwords,
+robot's final position and the destination position. In other words,
 closer is better.
 
-=== Stage 4: Scoring an Indirect Goal
+=== Stage 4: Scoring an Indirect Goal (without Obstacles)
 
-This stage is a more complex version of stage 3 and 4. The goal is the same,
-but now robot must pass the ball to a second robot. Like stage 2, a specific 
-goal will be designated so the receiver robot can attempt to score on the goal.
+This stage is a more complex version of stage 2 and 3. The objective is the same,
+but now robot must pass the ball to a second robot. Different from stage 2, the
+robots should score a goal on the positive side of the field.
 
-The goal is to be able to use local sensing to recognize ally and opponent robots
-in a game like scenario, and pass and receive ball without external sensors.
+The objective is collaborate using sensors to recognize ally robots in a game like
+scenario, and pass and receive the ball without external sensors.
 
-The passing robot and ball will start the same as in Stage 2. The receiver
-robot will start at a random position in opposite quadrant (at X axis) of 
-passing robot. The target goal will be on the same half that the robot starts on. 
-While scoring any robot may not enter the defense zone.
+One robot will start at a position (0.5m, 1.5m) and another in (0.5m, -1.5m), both
+orientations will be at 0. The ball position will start at the rambom position in the 
+positive side of the field. To maintain the difficulty, the robot distance from
+one of the robots will be equal between different teams. While scoring, the robots 
+may not enter the defense zone.
 
 ==== Scoring
 

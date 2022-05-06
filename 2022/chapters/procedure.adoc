@@ -104,7 +104,7 @@ without the use of the global vision system. No ball will be used for
 this stage.
 
 Robots will start at a random location/orientation somewhere on the field. And teams
-will receive an area of start (not a precise coordinate) before a run, so they 
+will receive an start area of 1m² before a run (not a precise coordinate), so they 
 can seed their location tracker with an estimate of the starting configuration.
 A destination position will be manually given to the teams at the
 start of the trial. The robots must drive to that position within the time

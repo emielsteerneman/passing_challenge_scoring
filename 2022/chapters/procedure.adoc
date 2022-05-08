@@ -89,7 +89,7 @@ No ball will be used for this stage.
 - Participants may enter the staring position seed and the target position into their robot configuration
 - The supervisor defines a random robot starting orientation
 - The supervisor defines a random robot starting position that is within 0.5 m distance to the position seed
-- the Robot is moved to its starting positions and orientation
+- The robot is moved to its starting position and orientation.
 - The trial is started
 - The trial is stopped after one minute or if the robot did not move for 10 seconds after moving at least once
 

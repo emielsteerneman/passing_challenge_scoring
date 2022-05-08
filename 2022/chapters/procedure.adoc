@@ -56,7 +56,7 @@ The robot will need to detect a ball on the field, navigate to it, and place it 
 
 === Stage 2: Scoring on an Empty Goal
 
-This stage requires robots to localize themselves as well as the ball on the playing field, move to the ball and score a goal.
+This stage requires robots to localize a goal as well as the ball on the playing field, move to the ball and score a goal.
 
 ==== Procedure
 

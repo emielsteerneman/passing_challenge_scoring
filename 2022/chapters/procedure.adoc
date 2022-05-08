@@ -107,7 +107,7 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 
 - The supervisor defines a random ball starting position seed in the positive field half
 - Robot 1 is placed at (0.5 m, 1.5 m, 0°)
-- Robot 2 is placed at (0.5 m, 1.5 m, 0°)
+- Robot 2 is placed at (0.5 m, -1.5 m, 0°)
 - The ball is placed at a random starting position within 0.5 m distance of the position seed.
 
 ==== Scoring

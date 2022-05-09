@@ -1,7 +1,8 @@
 == Competition Procedure
 
 There are multiple stages with increasing difficulty.
-Participants will have 3 trials for each stage.
+Each stage have three different situations.
+Participants will have only one trial per situation (three trials per stage).
 All trials will be considered for the overall score.
 
 Each trial will be attempted by all participants, one after another.
@@ -44,7 +45,7 @@ The robot will need to detect a ball on the field, navigate to it, and place it 
 ==== Procedure
 
 - The supervisor defines random starting positions for robot and ball, as well as a random orientation for the robot.
-- Robot and ball are moved to their starting positions
+- Robot and ball are placed on their starting positions
 - The trial is started
 - The trial is stopped after one minute or if the robot did not move for 10 seconds after moving at least once
 
@@ -62,7 +63,7 @@ This stage requires robots to localize a goal as well as the ball on the playing
 
 - The supervisor defines a random robot starting position and orientation
 - The supervisor defines a random ball starting position
-- Robot and ball are moved to their starting positions
+- Robot and ball are placed on their starting positions
 - The trial is started
 - The trial is stopped after one minute or if the robot scored a goal
 
@@ -85,11 +86,14 @@ No ball will be used for this stage.
 
 ==== Procedure
 
-- The supervisor defines a random target position, random robot orientation and a random start position seed.
-- Participants may enter the staring position seed and the target position into their robot configuration
+- The supervisor defines a
+* random robot target position (no specific orientation is required)
+* random robot starting orientation
+* random robot starting position seed
+- Participants may enter the starting position seed and the target position into their robot configuration
 - The supervisor defines a random robot starting orientation
 - The supervisor defines a random robot starting position that is within 0.5 m distance to the position seed
-- The robot is moved to its starting position and orientation.
+- The robot is placed on its starting position and turned to its starting orientation.
 - The trial is started
 - The trial is stopped after one minute or if the robot did not move for 10 seconds after moving at least once
 
@@ -105,10 +109,12 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 
 ==== Procedure
 
-- The supervisor defines a random ball starting position seed in the positive field half
-- Robot 1 is placed at (0.5 m, 1.5 m, 0°)
-- Robot 2 is placed at (0.5 m, -1.5 m, 0°)
-- The ball is placed at a random starting position within 0.5 m distance of the position seed.
+- The supervisor defines a random ball starting position seed in the positive field half (positive x-coordinates)
+- Robot 1 is placed on starting position [0.5 m, 1.5 m, 0°]
+- Robot 2 is placed on starting position [0.5 m, -1.5 m, 0°]
+- The ball is placed on a random starting position within 0.5 m distance of the position seed.
+- The trial is started
+- The trial is stopped after two minutes or if a robot scored a goal
 
 ==== Scoring
 
@@ -116,6 +122,6 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 - Touching the ball with the passing robot dribbler -- +1
 - Pass hits receiver robot -- +1
 - Pass hits the receiver robot dribbler -- +1
- - Ball entered a defense zone -- +1
-- Ball entered goal -- +1
-- Robot entered a defense zone -- -1
+- Ball entered any defense zone -- +1
+- Ball entered any goal -- +1
+- Robot entered any defense zone -- -1

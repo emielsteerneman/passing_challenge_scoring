@@ -122,6 +122,7 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 - Touching the ball with the passing robot dribbler -- +1
 - Pass hits receiver robot -- +1
 - Pass hits the receiver robot dribbler -- +1
-- Ball entered any defense zone -- +1
-- Ball entered any goal -- +1
+- If shot by receiver robot:
+    - Ball entered any defense zone -- +1
+    - Ball entered any goal -- +1
 - Robot entered any defense zone -- -1

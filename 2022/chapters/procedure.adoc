@@ -114,6 +114,7 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 - Robot 2 is placed on starting position [0.5 m, -1.5 m, 0°]
 - The ball is placed on a random starting position within 0.5 m distance of the position seed.
 - The trial is started
+    * The first robot that touches the ball will be considered the passer, and the other, the receiver.
 - The trial is stopped after two minutes or if a robot scored a goal
 
 ==== Scoring
@@ -122,7 +123,7 @@ Robots are required to recognize other robots, receive a ball, coordinate betwee
 - Touching the ball with the passing robot dribbler -- +1
 - Pass hits receiver robot -- +1
 - Pass hits the receiver robot dribbler -- +1
-- If last touched by receiver robot:
+- If pass occurs (ball touched by both robots):
     * Ball entered any defense zone -- +1
     * Ball entered any goal -- +1
 - Robot entered any defense zone -- -1

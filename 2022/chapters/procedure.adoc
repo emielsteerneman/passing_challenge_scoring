@@ -1,0 +1,129 @@
+== Competition Procedure
+
+There are multiple stages with increasing difficulty.
+Each stage have three different situations.
+Participants will have only one trial per situation (three trials per stage).
+All trials will be considered for the overall score.
+
+Each trial will be attempted by all participants, one after another.
+The starting configuration of the trial will be similar for each team to achieve same conditions for all participants.
+
+If a participant can not attempt a trial for what ever reasons, no points are awarded for this trial.
+Other trials are not effected.
+
+The robots may move anywhere on the field within the walls.
+Similarly, the ball may move anywhere on the field throughout the time.
+Any defined positions will always be inside the field boundaries.
+
+=== Field setup
+
+Challenges will be executed on a Division B sized field as described in the main SSL rules.
+
+Because the vision patterns are not required, markings may be added to the field before a run to help the human judges verify that the robots are reaching the desired positions and orientations.
+Participants should not expect a perfect field with no additional markings.
+However, attempts will be made to keep the marks minimal and small to not interfere with on-board vision solutions.
+Additionally, participants should expect visual aspects of the field to vary slightly, including the exact color of the carpet and walls, the width of line markings, etc.
+
+=== Referee commands
+
+Each trial will start with a *HALT* command.
+Just before the start, a *STOP* command will be given to allow participants to prepare.
+When a *FORCE START* command is sent, the timer is started and robots may move.
+The trial will be stopped with a *HALT* command after successful challenge completion or after the time ran out
+
+=== Scoring
+
+Each stage may define a set of criteria which give positive or negative points.
+Points will also be given if the overall objective was not achieved.
+The duration of a trial is used as a tie-breaker (faster is better).
+
+=== Stage 1: Grab a Stationary Ball
+
+This stage is designed to be the easiest and to demonstrate basic sensing and control capabilities.
+The robot will need to detect a ball on the field, navigate to it, and place it on its dribbler.
+
+==== Procedure
+
+- The supervisor defines random starting positions for robot and ball, as well as a random orientation for the robot.
+- Robot and ball are placed on their starting positions
+- The trial is started
+- The trial is stopped after one minute or if the robot did not move for 10 seconds after moving at least once
+
+==== Scoring
+
+- Touching the ball with any part of the robot -- +1
+- Touching the ball with the dribbler -- +1
+- Robot stopped with the ball touching the dribbler at the end of the run-- +1
+
+=== Stage 2: Scoring on an Empty Goal
+
+This stage requires robots to localize a goal as well as the ball on the playing field, move to the ball and score a goal.
+
+==== Procedure
+
+- The supervisor defines a random robot starting position and orientation
+- The supervisor defines a random ball starting position
+- Robot and ball are placed on their starting positions
+- The trial is started
+- The trial is stopped after one minute or if the robot scored a goal
+
+==== Additional Rules
+
+- Either of the two goals may be used for scoring
+
+==== Scoring
+
+- Touching the ball with any part of the robot -- +1
+- Touching the ball with the dribbler -- +1
+- Ball entered any defense zone -- +1
+- Ball entered any goal -- +1
+- Robot entered any defense zone -- -1
+
+=== Stage 3: Moving to Specific Coordinates
+
+This stage is designed to demonstrate localization capabilities without the use of the global vision system.
+No ball will be used for this stage.
+
+==== Procedure
+
+- The supervisor defines a
+* random robot target position (no specific orientation is required)
+* random robot starting orientation
+* random robot starting position seed
+- Participants may enter the starting position seed and the target position into their robot configuration
+- The supervisor defines a random robot starting orientation
+- The supervisor defines a random robot starting position that is within 0.5 m distance to the position seed
+- The robot is placed on its starting position and turned to its starting orientation.
+- The trial is started
+- The trial is stopped after one minute or if the robot did not move for 10 seconds after moving at least once
+
+==== Scoring
+
+The score is equal to the negative straight line distance between the robot's final position and the destination position.
+(In other words, closer is better)
+
+=== Stage 4: Scoring an Indirect Goal (without Obstacles)
+
+The objective of this stage is to score an indirect goal using two robots.
+Robots are required to recognize other robots, receive a ball, coordinate between each other and finally to score a goal.
+
+==== Procedure
+
+- The supervisor defines a random ball starting position seed in the positive field half (positive x-coordinates)
+- Robot 1 is placed on starting position [0.5 m, 1.5 m, 0°]
+- Robot 2 is placed on starting position [0.5 m, -1.5 m, 0°]
+- The ball is placed on a random starting position within 0.5 m distance of the position seed.
+- The trial is started
+    * The first robot that touches the ball will be considered the passer, and the other, the receiver.
+- The trial is stopped after two minutes or if a robot scored a goal
+
+==== Scoring
+
+- Touching the ball with any part of the passing robot -- +1
+- Touching the ball with the passing robot dribbler -- +1
+- Pass hits receiver robot -- +1
+- Pass hits the receiver robot dribbler -- +1
+- If both robots have touched the ball:
+    * Ball entered any defense zone -- +1
+    * Ball entered any goal -- +1
+- Robot entered any defense zone -- -1

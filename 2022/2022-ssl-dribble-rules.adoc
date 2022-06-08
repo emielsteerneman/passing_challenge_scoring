@@ -1,0 +1,69 @@
+:source-highlighter: highlightjs
+
+= RoboCup 2022 SSL Dribbling Technical Challenge Rules
+{docdate}
+:toc:
+:sectnumlevels: 0
+
+// add icons from fontawesome in a up-to-date version
+ifdef::backend-html5[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::backend-html5[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team
+members, officials, etc. are for simplification and apply to both males and
+females.
+
+== Goals of the Technical Challenge
+
+Last year we hosted hardware challenges as a way to promote the development of hardware
+even though there would be no physical competition. However, we noticed that many teams had
+trouble performing the dribbling challenge. Because of that, we decided to keep it as a
+technical challenge this year, giving teams more opportunity to work on this. 
+
+== Procedure
+
+There are six gates defined in this challenge. A gate is the line between two robots. For a robot to successfully pass a gate, it must cross this line.
+
+The gates are:
+
+* Gate A - between robot 0 and 1
+* Gate B - between robot 1 and 2
+* Gate C - between robot 2 and 3
+* Gate D - between robot 3 and 0
+* Gate E - between robot 0 and 4
+* Gate F - between robot 5 and 6
+
+The ball starts inside the bots 0-1-2-3 shape, the (blue) robot at the corner.
+
+The robot should then get the ball and do the following procedure:
+
+* Pass with the ball gate A twice
+* Pass with the ball gate B twice
+* Pass with the ball gate C twice
+* Pass with the ball gate D once
+* Pass with the ball gate E once
+* Pass with the ball gate F once
+
+The robot should finalize the challenge placing the ball around one meter away from robot 6.
+
+See Appendix A for the visualization of the field before the start of the challenge. 
+
+
+== Evaluation
+
+Every team will have 5 minutes to complete the challenge. 
+
+One point will be awarded for each gate successfully passed. In case of a tie, the team with the least
+amount of time wins. 
+
+The TC reserves the right to change the evaluation procedure.
+
+== Appendix A: challenge visualization
+
+image::dribble.png

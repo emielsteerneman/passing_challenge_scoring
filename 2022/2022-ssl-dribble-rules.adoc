@@ -66,4 +66,4 @@ The TC reserves the right to change the evaluation procedure.
 
 == Appendix A: challenge visualization
 
-image::dribble.png
+image::dribble.png[]

@@ -28,6 +28,10 @@ technical challenge this year, giving teams more opportunity to work on this.
 
 == Procedure
 
+Each team will be given a 30 minute slot to complete this challenge, so please do set up before it begins. When the challenge begins, teams are free to start a trail when they are ready, informing the TC or OC that will be observing that they will start. The referee will make sure that all robots are in position according to the Appendix A. If there are no issues, a FORCE_START command will be given and the timer will start. There is no time limit for one trail, however, if the robot breaks any of the rules, the trial will be considered a failure. The team may also opt to stop the trail. The referee will keep score of the gates passed. Each team can do up to three trials. However, if 30 minutes has passed since the start of the challenge and not all trails have been done, those that have not been done will be considered failures. If teams want to modify their code between trails, they are allowed to. During trials teams are not allowed to touch the computer. 
+
+=== Performance of a trial
+
 There are six gates defined in this challenge. A gate is the line between two robots. For a robot to successfully pass a gate, it must cross this line.
 
 The gates are:
@@ -54,13 +58,20 @@ The robot should finalize the challenge placing the ball around one meter away f
 
 See Appendix A for the visualization of the field before the start of the challenge. 
 
+=== Rules
+
+* The standard match rules do not apply. This means:
+** The robot is allowed to dribble the ball for more than 1m in this challenge.
+** The ball can not go out of the field.
+* If the robot loses the ball, the robot is allowed to retrieve the ball again and continue. The time will not be paused.
+* The robot is not allowed to touch the obstacles, else the trial is considered failed.
+
 
 == Evaluation
 
-Every team will have 5 minutes to complete the challenge. 
+The trail with the most amount of gates passed will be taken for overall scoring per team. If there is a tie, the fastest one will be used.
 
-One point will be awarded for each gate successfully passed. In case of a tie, the team with the least
-amount of time wins. 
+The same applies for the overall challenge: the trail with the most amount of gates passed will win the challenge. If there is a tie, the fastest one will be used.
 
 The TC reserves the right to change the evaluation procedure.
 

@@ -8,9 +8,9 @@ before_install:
 - docker pull asciidoctor/docker-asciidoctor
 script:
 - docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor -a data-uri 2022-ssl-ball-placement-rules.adoc
+  asciidoctor -a data-uri *.adoc
 - docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor
-  asciidoctor-pdf 2022-ssl-ball-placement-rules.adoc
+  asciidoctor-pdf *.adoc
 - git clone https://github.com/RoboCup-SSL/technical-challenge-rules.git --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
 - cd $TRAVIS_BUILD_DIR/gh-pages
 - cp $TRAVIS_BUILD_DIR/2022/*.html $TRAVIS_BUILD_DIR/2022/*.pdf .

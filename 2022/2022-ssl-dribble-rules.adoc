@@ -58,7 +58,7 @@ The robot should finalize the challenge placing the ball around one meter away f
 
 See Appendix A for the visualization of the field before the start of the challenge. 
 
-Obs.: Some gates must be passed twice. It is up to the teams to decide how to perform this, but the robot must
+Obs.: Some gates must be passed twice. It is up to the teams to decide how to perform this, but the full body of the robot must
 cross the gate line twice for it to be considered successful. 
 
 === Rules

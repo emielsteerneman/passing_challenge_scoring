@@ -45,18 +45,21 @@ The gates are:
 
 The ball starts inside the bots 0-1-2-3 shape, the (blue) robot at the corner.
 
-The robot should then get the ball and do the following procedure:
+The robot should then get the ball and do the following procedure in this order:
 
-* Pass with the ball gate A twice
-* Pass with the ball gate B twice
-* Pass with the ball gate C twice
-* Pass with the ball gate D once
-* Pass with the ball gate E once
-* Pass with the ball gate F once
+. Pass with the ball gate A twice
+. Pass with the ball gate B twice
+. Pass with the ball gate C twice
+. Pass with the ball gate D once
+. Pass with the ball gate E once
+. Pass with the ball gate F once
 
 The robot should finalize the challenge placing the ball around one meter away from robot 6.
 
 See Appendix A for the visualization of the field before the start of the challenge. 
+
+Obs.: Some gates must be passed twice. It is up to the teams to decide how to perform this, but the robot must
+cross the gate line twice for it to be considered successful. 
 
 === Rules
 

@@ -28,7 +28,7 @@ technical challenge this year, giving teams more opportunity to work on this.
 
 == Procedure
 
-Each team will be given a 30 minute slot to complete this challenge, so please do set up before it begins. When the challenge begins, teams are free to start a trial when they are ready, informing the supervisor that they will start. The supervisor will make sure that all robots are in position according to the Appendix A. If there are no issues, a FORCE_START command will be given and the timer will start. There is no time limit for one trial, however, if the robot breaks any of the rules, the trial will be considered a failure. The team may also opt to stop the trial. The supervisor will keep score of the gates passed. Each team can do up to three trials. However, if 30 minutes has passed since the start of the challenge and not all trials have been done, those that have not been done will be considered failures. If teams want to modify their code between trials, they are allowed to. During trials teams are not allowed to touch the computer. 
+Each team will be given a 20 minute slot to complete this challenge, so please do set up before it begins. When the challenge begins, teams are free to start a trial when they are ready, informing the supervisor that they will start. The supervisor will make sure that all robots are in position according to the Appendix A. If there are no issues, a FORCE_START command will be given and the timer will start. There is no time limit for one trial, however, if the robot breaks any of the rules, the trial will be considered a failure. The team may also opt to stop the trial. The supervisor will keep score of the gates passed. Each team can do up to three trials. However, if 30 minutes has passed since the start of the challenge and not all trials have been done, those that have not been done will be considered failures. If teams want to modify their code between trials, they are allowed to. During trials teams are not allowed to touch the computer. 
 
 === Performance of a trial
 
@@ -58,7 +58,7 @@ The robot should finalize the challenge placing the ball around one meter away f
 
 See Appendix A for the visualization of the field before the start of the challenge. 
 
-Obs.: Some gates must be passed twice. It is up to the teams to decide how to perform this, but the full body of the robot must
+Observation: Some gates must be passed twice. It is up to the teams to decide how to perform this, but the full body of the robot and the ball must
 cross the gate line twice for it to be considered successful. 
 
 === Rules

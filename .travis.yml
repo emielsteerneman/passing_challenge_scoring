@@ -1,4 +1,4 @@
-language: minimal
+language: shell
 os: linux
 dist: focal
 
@@ -7,7 +7,8 @@ services:
 
 stages:
   - name: build
-  - name: publish
+    if: branch != master
+  - name: build-publish
     if: branch = master
 
 jobs:
@@ -18,8 +19,12 @@ jobs:
         - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
         - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
         - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
-    - stage: publish
+    - stage: build-publish
       script:
+        - cd $TRAVIS_BUILD_DIR
+        - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
+        - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
+        - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
         - git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
         - cd $TRAVIS_BUILD_DIR/gh-pages
         - cp $TRAVIS_BUILD_DIR/${year}/*.html $TRAVIS_BUILD_DIR/${year}/*.pdf .

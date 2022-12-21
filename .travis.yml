@@ -1,26 +1,30 @@
-if: branch = master
-
-sudo: required
-
-language: python
+language: minimal
+os: linux
+dist: focal
 
 services:
   - docker
 
-before_install:
-  - mkdir -p output
-  - docker pull asciidoctor/docker-asciidoctor
+stages:
+  - name: build
+  - name: publish
+    if: branch = master
 
-script:
-  - cd $TRAVIS_BUILD_DIR
-  - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
-  - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
-  - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
-  - git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
-  - cd $TRAVIS_BUILD_DIR/gh-pages
-  - cp $TRAVIS_BUILD_DIR/${year}/*.html $TRAVIS_BUILD_DIR/${year}/*.pdf .
-  - git config user.name "TravisCI"
-  - git config user.email "build-pipeline@travis-ci.org"
-  - git add *.html *.pdf
-  - git commit -m "Update GitHub Pages"
-  - git push "https://${GH_TOKEN}@${GH_REF}" gh-pages
+jobs:
+  include:
+    - stage: build
+      script:
+        - cd $TRAVIS_BUILD_DIR
+        - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
+        - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
+        - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
+    - stage: publish
+      script:
+        - git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
+        - cd $TRAVIS_BUILD_DIR/gh-pages
+        - cp $TRAVIS_BUILD_DIR/${year}/*.html $TRAVIS_BUILD_DIR/${year}/*.pdf .
+        - git config user.name "TravisCI"
+        - git config user.email "build-pipeline@travis-ci.org"
+        - git add *.html *.pdf
+        - git commit -m "Update GitHub Pages"
+        - git push "https://${GH_TOKEN}@${GH_REF}" gh-pages

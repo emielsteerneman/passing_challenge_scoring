@@ -12,11 +12,12 @@ before_install:
   - docker pull asciidoctor/docker-asciidoctor
 
 script:
-  - docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
-  - docker run -v $TRAVIS_BUILD_DIR/2022:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
+  - cd $TRAVIS_BUILD_DIR
+  - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
+  - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor -a data-uri *.adoc
+  - docker run -v $TRAVIS_BUILD_DIR/${year}:/documents/ asciidoctor/docker-asciidoctor asciidoctor-pdf *.adoc
   - git clone https://${GH_REF} --single-branch --branch gh-pages $TRAVIS_BUILD_DIR/gh-pages
   - cd $TRAVIS_BUILD_DIR/gh-pages
-  - year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
   - cp $TRAVIS_BUILD_DIR/${year}/*.html $TRAVIS_BUILD_DIR/${year}/*.pdf .
   - git config user.name "TravisCI"
   - git config user.email "build-pipeline@travis-ci.org"

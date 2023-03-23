@@ -1,0 +1,91 @@
+:source-highlighter: highlightjs
+
+= RoboCup 2023 SSL Chip Pass Challenge Rules
+{docdate}
+:toc:
+:sectnumlevels: 0
+
+// add icons from fontawesome in a up-to-date version
+ifdef::backend-html5[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::backend-html5[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team
+members, officials, etc. are for simplification and apply to both males and
+females.
+
+== Motivation
+
+A key distinguishing characteristic of the Small Size League is its tight integration of software and hardware, which is crucial to create a dynamic collaborative soccer match. The chip kick challenge goal is to develop the passing skill accuracy and endurance to enable more plays and increase ball posession time in the game.
+
+== Constraints
+
+- Challenges will be playable on the practice filed with Division B size.
+- Human interference is not allowed unless specified otherwise.
+- The filed boundaries needs to be respected.
+- Teams can use up to 6 robots.
+
+== Challenge: Chip kick pass endurance
+
+==== Objective
+
+For best results, a team must be able to kick and receive the ball precisely, fast, often, and withing filed lines. This is not only challenging for the software, but also for the mechanics of the robot.
+
+Within a 5 minutes, the team is asked to perform as many passes as possible, prefebly a chip kick pass, as it counts more than a ground pass. The team that performs the most passes wins.
+
+==== Procedure
+
+- The team places all robots on the middle line and the ball on the center point.
+- A FORCE_START command will be issued and the timer will start.
+- After *5min* a HALT command will be issued and the challenge is over.
+
+==== Rules
+
+Teams are free in how they perform the passes. Definitions of a pass in general and additional constrains for valid
+pass that are considered in the scoring are given in this section.
+
+A pass is defined as follows:
+
+- A pass has a source position, a target position and a shooter.
+- The source position is where the ball was kicked by a robot.
+- The target position is where the ball either stops or changes direction by more than 30 degrees.
+- The shooter is the robot located nearest to the source position when the pass started.
+- The pass distance is the euclidean distance between source and target position.
+- The pass direction is the orientation of the vector of `target - source`.
+
+For a chip kick pass, besides previous definition:
+
+- The ball needs to rech at least 15cm high to be considered a valid chip pass.
+
+A valid pass must additionally met the following constraints:
+
+- The pass distance must be at least *1.5m*.
+- The shooter of the previous pass can not be the receiver of the current pass (this implicitly means you need *at least 3 robots*).
+- The pass direction of the pass must differ by at least *10 degrees* from the inverted previous pass direction: latexmath:[abs(passDirection_{cur} - (passDirection_{previous} + 180°)) > 10°]
+- The ball must not exceed 6.5 m/s (as defined in the tournament rules).
+
+NOTE: Previous passes include all passes, not only those considered valid.
+
+Additionally, the following rules apply:
+
+- The number of robots is limited to *6 robots*.
+- Teams are allowed and encouraged to recover the ball from the field boundary.
+- Any human interference, including exchanging robots, reduces the final number of passes by *10*.
+- Whenever ball goes out of field lines, the number of passes is reduced by *1*.
+- If the ball is kicked out of the field, the ball can be positined inside filed. The repositioning will count as human interference.
+
+==== Evaluation
+
+The team with most valid passes wins. If teams have the same number of passes, they will share the better position.
+
+- One ground pass counts as 1 pass.
+- One chip kick pass counts as 3 passes.
+
+Two of more members of OC/TC will be assigned to each challenge and act as the referee. The referee has the final decision of the result. If the two referees counts differ, the final result will be the counts average.
+
+

@@ -48,7 +48,7 @@ A pass is defined as follows:
 
 == Scoring
 
-A valid pass must meet the following constraints:
+A valid pass must meet the following criteria:
 
 * The pass distance must be at least *1.5m*.
 * The shooter of the previous pass can not be the receiver of the current pass (this implicitly means you need *at least 3 robots*).
@@ -56,10 +56,12 @@ A valid pass must meet the following constraints:
 * The ball must not exceed 6.5m/s (as defined in the tournament rules).
 * The source and target must be inside field lines.
 
+NOTE: Previous passes include all passes, not only those considered valid.
+
 Passes are scored as follows:
 
 * A valid ground pass -- *1 point*
-* A valid chip pass -- *3 points*
+* A valid chipped pass -- *3 points*
 
 Additionally, the following rules apply:
 

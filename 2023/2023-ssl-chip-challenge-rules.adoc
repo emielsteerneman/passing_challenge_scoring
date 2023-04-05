@@ -3,6 +3,7 @@
 = RoboCup 2023 SSL Chip Pass Challenge Rules
 {docdate}
 :toc:
+:stem: latexmath
 :sectnumlevels: 0
 
 // add icons from fontawesome in a up-to-date version

@@ -41,7 +41,7 @@ A pass is defined as follows:
 
 * A pass has a source position, a target position and a shooter.
 * The source position is where a robot kicks the ball.
-* The target position is where the ball stops or changes direction by more than *30 degrees*.
+* The target position is where the ball stops or changes direction by more than *30 degrees* in field plane (x, y).
 * The shooter is the robot located nearest to the source position when the pass starts.
 * The pass distance is the euclidean distance between the source and target position.
 * The pass direction is the orientation of the `target - source` vector.

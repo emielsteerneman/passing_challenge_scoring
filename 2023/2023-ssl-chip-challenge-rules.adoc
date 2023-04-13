@@ -1,0 +1,80 @@
+:source-highlighter: highlightjs
+
+= RoboCup 2023 SSL Chip Pass Challenge Rules
+{docdate}
+:toc:
+:stem: latexmath
+:sectnumlevels: 0
+
+// add icons from fontawesome in a up-to-date version
+ifdef::backend-html5[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::backend-html5[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team
+members, officials, etc., are for simplification and apply to both males and
+females.
+
+== Goal
+A key distinguishing characteristic of the Small Size League is its tight integration of software and hardware, which is crucial to create a dynamic, collaborative soccer match.
+
+The task in this technical challenge is to perform as many passes between robots as possible within a limited amount of time, similar to the https://ssl.robocup.org/robocup-2021-challenges/[hardware challenge from 2021]. Additionally, teams are encouraged (but not forced) to chip kick the ball to show their ability to precisely perform and receive chipped passes.
+
+This challenge requires both, accurate passing skills and endurance. The robot hardware will be challenged with the high frequency of kicks. Still, the task is pretty straight forward and can be performed by any team with a bit of preparation. Thus, all teams are encouraged to participate.
+
+== Procedure
+
+* The team places its robots on the middle line and the ball on the center point.
+* A FORCE_START command will be issued, and the timer will start.
+* After *5min* a HALT command will be issued and the challenge is over.
+
+=== Pass Definitions
+
+Teams are free in how they perform the passes. Definitions of a pass in general and additional constrains for valid pass that are considered in the scoring are given in this section.
+
+A pass is defined as follows:
+
+* A pass has a source position, a target position and a shooter.
+* The source position is where a robot kicks the ball.
+* The target position is where the ball stops or changes direction by more than *30 degrees* in field plane (x, y).
+* The shooter is the robot located nearest to the source position when the pass starts.
+* The pass distance is the euclidean distance between the source and target position.
+* The pass direction is the orientation of the `target - source` vector.
+* The pass is considered *chipped*, if the ball reached a maximum height of at least *15cm*.
+
+== Scoring
+
+A valid pass must meet the following criteria:
+
+* The pass distance must be at least *1.5m*.
+* The shooter of the previous pass can not be the receiver of the current pass (this implicitly means you need *at least 3 robots*).
+* The pass direction of the pass must differ by at least *10 degrees* from the inverted previous pass direction: latexmath:[abs(passDirection_{cur} - (passDirection_{previous} + 180°)) > 10°]
+* The ball must not exceed 6.5m/s (as defined in the tournament rules).
+* The source and target must be inside field lines.
+
+NOTE: Previous passes include all passes, not only those considered valid.
+
+Passes are scored as follows:
+
+* A valid ground pass -- *1 point*
+* A valid chipped pass -- *3 points*
+
+Additionally, the following rules apply:
+
+* The number of robots is limited to *6 robots*.
+* Teams are allowed and encouraged to recover the ball outside of field lines.
+* Any human interference, including exchanging robots, reduces the final number of points by *10 points*.
+* If the ball is kicked out of the field, the ball can be positioned inside by the team. This will count as human interference.
+
+== Evaluation
+
+Two or more members of OC/TC will be assigned to each challenge and act as the referee. The referee has the final decision on the result. If the two referees' counts differ, the final result will be the points average.
+
+The team with the most points wins.
+The number of chipped passes acts as a tiebreaker.
+Teams with the same number of points and same number of chipped passes will share the better position.

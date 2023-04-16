@@ -62,7 +62,7 @@ NOTE: Previous passes include all passes, not only those considered valid.
 Passes are scored as follows:
 
 * A valid ground pass -- *1 point*
-* A valid chipped pass -- *3 points*
+* A valid chipped pass -- *5 points*
 
 Additionally, the following rules apply:
 

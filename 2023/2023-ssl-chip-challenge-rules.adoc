@@ -68,7 +68,7 @@ Additionally, the following rules apply:
 
 * The number of robots is limited to *6 robots*.
 * Teams are allowed and encouraged to recover the ball outside of field lines.
-* Any human interference, including exchanging robots, reduces the final number of points by *10 points*.
+* Any human interference, including exchanging robots, reduces the final number of points by *15 points*.
 * If the ball is kicked out of the field, the ball can be positioned inside by the team. This will count as human interference.
 
 == Evaluation

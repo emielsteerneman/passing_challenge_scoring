@@ -1,0 +1,50 @@
+:source-highlighter: highlightjs
+
+= RoboCup 2024 SSL Black and White Hulls Technical Challenge Rules
+{docdate}
+:toc:
+:sectnumlevels: 0
+
+// add icons from fontawesome in a up-to-date version
+ifdef::backend-html5[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::backend-html5[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team
+members, officials, etc. are for simplification and apply to both males and
+females.
+
+== Goals of the Technical Challenge
+
+Given that most parts of the teams use similar hulls, differing only in the use of stickers and sponsorships, it can be difficult for spectators to differentiate the teams during a match only by observing the central blob color. Because of it, the TC/OC decided that, in the future, teams will have to use different hulls in a match. One team will use black hulls and the other team white hulls. So, the main goal of the challenge is that the teams bring ideas to solve this efficiently.
+
+=== Participation Requirements
+
+All teams are eligible and *are encouraged* to participate in this challenge.
+
+== Evaluation
+
+Every team has a 5-minute pitch to explain their solution for the challenge and the built design and 5 minutes for possible questions.
+
+At least one team member should be present during presentations since all teams will vote for the best solution.
+
+The following criteria will be evaluated.
+
+* Size efficiency
+* Time to switch
+* Durability
+
+=== Scoring
+
+After the presentations, every team will receive a ballot where they will rate the solutions from 1 to 5 for each criterion.
+
+The teams are encouraged to use their solutions in the matches to prove their efficiency to the others. Besides that, the teams that switch the hulls during the half-time in a match will earn extra points (TBD).
+
+The TC/OC will sum up the points of each team. The team with the most points wins. In case of ties, the team that switched the hulls in most matches wins.
+
+The TC reserves the right to change the evaluation procedure.

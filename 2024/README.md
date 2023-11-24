@@ -1,4 +1,4 @@
-# RoboCup 2023 SSL Technical Challenge Rules
+# RoboCup 2024 SSL Technical Challenge Rules
 
 ## Building
 
@@ -11,9 +11,9 @@ build HTML5 version with
 
 ```
 # Build the HTML5 version
-asciidoctor 2023-ssl-ball-placement-rules.adoc
+asciidoctor 2024-ssl-black-white-hulls-rules.adoc
 # Build the PDF version
-asciidoctor-pdf 2023-ssl-ball-placement-rules.adoc
+asciidoctor-pdf 2024-ssl-black-white-hulls-rules.adoc
 ```
 
 ### Using docker image

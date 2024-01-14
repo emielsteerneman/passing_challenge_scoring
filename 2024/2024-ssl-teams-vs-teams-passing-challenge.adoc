@@ -1,6 +1,6 @@
 :source-highlighter: highlightjs
 
-= RoboCup 2024 Team vs. Team passing Challenge
+= RoboCup 2024 Team vs. Team Passing Challenge
 {docdate}
 :toc:
 :stem: latexmath
@@ -27,41 +27,26 @@ While this goal was pursued in last year's SSL Chip Pass Challenge, the goal of 
 
 Therefore this year two teams will try to play as many passes as possible while competing against each other. To achieve this, the ruleset used last year has been adapted to the new situation.
 
-Although the teams, which have participated in one of the previous passing challenges, might have a slight advantage, we would like to encourage all teams to participate in this technicall challenge.
+Although the teams, which have participated in one of the previous passing challenges, might have a slight advantage, we would like to encourage all teams to participate in this technical challenge.
 
 == Procedure
 
-The technicall challenge will be held on a Div B field with a maximum of 4 robots per team.
+The technical challenge will be held on a Div B field with a maximum of 4 robots per team.
 
 To level the playing field and to remove the impact of the performance of the opponent team on a teams score, each team will play two games against different contestants of the technical challenge.
 
 Each game will have the following procedure:
 
-* If both teams agree on the team colors, their suggestion will be used. If they do not agree, the referee will make a coin toss and the winning team will get the yellow team color. Even in this case, the teamcolor will not be changed during the half time break.
-* To start the game, a kick-off command for the yellow team will be issued from the game controller. For the start the robots can be positioned can positioned in any way prefered, along as the positioning does not violate the usual ruleset for a kick-off.
+* If both teams agree on the team colors, their suggestion will be used. If they do not agree, the referee will make a coin toss and the winning team will get the yellow team color. Even in this case, the team color will not be changed during the half time break.
+* To start the game, a kick-off command for the yellow team will be issued from the game controller. For the start the robots can be positioned in any way preferred, as long as the positioning does not violate the usual ruleset for a kick-off.
 * After *2 minutes of game time* a stop command will be issued and the first half of the game is over.
-* The half time break for this challenge will be only 60 seconds, since it should be mainly used to setup the robots at their desired position again and to exchange faulty robots. 
+* The half time break for this challenge will be only 60 seconds, since it should be mainly used to set up the robots at their desired position again and to exchange faulty robots. 
 * To start the second half a kick-off command for the blue team will be issued.
 * After another *2 minutes of game time* a stop command will be issued and the game is over. 
 
+=== Special Rule Set during the Technical Challenge
 
-=== Pass Definitions
-
-Teams are free in how they perform the passes. Definitions of a pass in general and additional constrains for valid pass that are considered in the scoring are given in this section.
-
-A pass is defined as follows:
-
-* A pass has a source position, a target position and a shooter.
-* The source position is where a robot kicks the ball.
-* The target position is where the ball stops or changes direction by more than *30 degrees* in field plane (x, y).
-* The shooter is the robot located nearest to the source position when the pass starts.
-* The pass distance is the euclidean distance between the source and target position.
-* The pass direction is the orientation of the `target - source` vector.
-* The pass is considered *chipped*, if the ball reached a maximum height of at least *15cm*.
-
-=== Special Ruleset during the technical challenge
-
-For the technical challenge a Div B field will be used. If the ball leaves the field via any of the field lines, the game will be halted and the team, that did not last touch the ball gets awared a free kick.
+For the technical challenge a Div B field will be used. If the ball leaves the field via any of the field lines, the game will be halted and the team that did not last touch the ball gets awarded a free kick.
 
 During the games of the technical challenge only the following fouls from the ssl rulebook apply: 
 
@@ -75,7 +60,22 @@ During the games of the technical challenge only the following fouls from the ss
 * Defender too close to ball 
 * Robot Stop Speed 
 
-During this challenge a maximum of 4 robots per team are allowed. For every yellow card, that a team got, the number of allowed robots for the half time will be decreased by one. A red card will decrease that number for the entire time of the game. 
+During this challenge a maximum of 4 robots per team are allowed. For every yellow card that a team gets, the number of allowed robots for the halftime will be decreased by one. A red card will decrease that number for the entire time of the game. 
+
+
+=== Pass Definitions
+
+Teams are free in how they perform the passes. Definitions of a pass in general and additional constraints for valid passes that are considered in the scoring are given in this section.
+
+A pass is defined as follows:
+
+* A pass has a source position, a target position and a shooter.
+* The source position is where a robot kicks the ball.
+* The target position is where the ball stops or changes direction by more than *30 degrees* in field plane (x, y).
+* The shooter is the robot located nearest to the source position when the pass starts.
+* The pass distance is the euclidean distance between the source and target position.
+* The pass direction is the orientation of the `target - source` vector.
+* [.line-through]#* The pass is considered *chipped*, if the ball reached a maximum height of at least *15 cm*.#
 
 == Scoring
 
@@ -83,17 +83,18 @@ A valid pass must meet the following criteria:
 
 * The pass distance must be at least [.line-through]#*1.5m*.# *1 m*.
 * [.line-through]#The shooter of the previous pass can not be the receiver of the current pass.#
-* The shooter and the reciever of the pass must be from the same team.
+* The shooter and the receiver of the pass must be from the same team.
 * The pass direction of the pass must differ by at least *10 degrees* from the inverted previous pass direction: latexmath:[abs(passDirection_{cur} - (passDirection_{previous} + 180°)) > 10°]
 * The ball must not exceed 6.5m/s (as defined in the tournament rules).
 * The source and target must be inside field lines.
 
 NOTE: Previous passes include all passes, not only those considered valid.
 
-Passes are scored as follows:
+Each valid pass is worth one point. +
+[.line-through]#*Passes are scored as follows:#
 
-* A valid ground pass -- *1 point*
-* A valid chipped pass -- [.line-through]#*5 points*# *3 points*
+[.line-through]#* A valid ground pass -- *1 point*# + 
+[.line-through]#* A valid chipped pass --  *3 points*# 
 
 
 == Evaluation
@@ -101,5 +102,5 @@ Passes are scored as follows:
 Two or more members of OC/TC will be assigned to each challenge and act as the referee. The referee has the final decision on the result. If the two referees' counts differ, the final result will be the points average.
 
 The points for each team from both games will be added and the team with the most points wins.
-[.line-through]#The number of chipped passes acts as a tiebreaker.#
+[.line-through]# The number of chipped passes acts as a tiebreaker.#
 Teams with the same number of points [.line-through]#and same number of chipped passes# will share the better position.

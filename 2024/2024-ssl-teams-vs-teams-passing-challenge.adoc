@@ -37,7 +37,7 @@ To level the playing field and to remove the impact of the performance of the op
 
 Each game will have the following procedure:
 
-* To reduce the preparation time, the team colors for each team will be determined by the TC/OC and announced togheter with the schedule of the technical challenge.
+* To reduce the preparation time, the team colors for each team will be determined by the TC/OC and announced together with the schedule of the technical challenge.
 * To start the game, a kick-off command for the yellow team will be issued from the game controller. For the start the robots can be positioned in any way preferred, as long as the positioning does not violate the usual ruleset for a kick-off.
 * After *2 minutes of game time* a stop command will be issued and the first half of the game is over.
 * The half time break for this challenge will be only 60 seconds, since it should be mainly used to set up the robots at their desired position again and to exchange faulty robots. 

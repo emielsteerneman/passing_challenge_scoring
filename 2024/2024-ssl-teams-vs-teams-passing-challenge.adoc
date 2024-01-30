@@ -31,8 +31,6 @@ Although the teams, which have participated in one of the previous passing chall
 
 == Procedure
 
-The technical challenge will be held on a Div B field with a maximum of 4 robots per team.
-
 To level the playing field and to remove the impact of the performance of the opponent team on a teams score, each team will play two games against different contestants of the technical challenge. To reduce the risk of biases the TC/OC will draw the pairings for each match by random and announce the pairings together with the schedule for the technical challenge.
 
 Each game will have the following procedure:
@@ -46,7 +44,7 @@ Each game will have the following procedure:
 
 === Special Rule Set during the Technical Challenge
 
-For the technical challenge a Div B field will be used. If the ball leaves the field via any of the field lines, the game will be stopped and the team that did not last touch the ball gets awarded a kick-off.
+For the technical challenge a Div B field will be used with a maximum of 4 robots per team. If the ball leaves the field via any of the field lines, the game will be stopped and the team that did not last touch the ball gets awarded a kick-off.
 
 During the games of the technical challenge *only* the following fouls from the ssl rulebook apply: 
 
@@ -73,7 +71,6 @@ A pass is defined as follows:
 * The target position is where the ball stops or changes its direction.
 * The shooter is the robot located nearest to the source position when the pass starts.
 * The pass distance is the euclidean distance between the source and target position.
-* The pass direction is the orientation of the `target - source` vector.
 
 == Scoring
 

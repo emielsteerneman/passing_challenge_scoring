@@ -29,7 +29,7 @@ All teams are eligible and *are encouraged* to participate in this challenge.
 
 == Evaluation
 
-Every team has a 5-minute pitch to explain their solution for the challenge and the built design and 5 minutes for possible questions. After the presentation, the TC/OC will measure the time necessary to switch from a black hull to a white hull of one robot.
+Every team has a 5-minute pitch to explain their solution for the challenge and the built design and 5 minutes for possible questions. During the presentation, the TC/OC will measure the time of the team solution.
 
 At least one member of each team should be present during presentations since all teams will vote for the best solution.
 
@@ -38,13 +38,15 @@ The following criteria will be evaluated.
 * Size efficiency
 * Durability
 * Ease of changing
+* Costs
+* Ease of building
 
 === Scoring
 
 After the presentations, every team will receive a ballot where they will rate the solutions from 1 to 5 for each criterion.
 
-The teams are encouraged to use their solutions in the matches to prove their efficiency to the others. Besides that, the teams that switch the hulls during the half-time in a match will earn 10 extra points.
+The teams are encouraged to use their solutions in the matches to prove their efficiency to the others. Besides, the teams that use their solution in a game earn 5 extra points and can receive more 5 points if they switch the hulls during half-time.
 
-The TC/OC will sum up the points of each team. The team with the most points wins. In case of ties, the fastest team wins.
+The TC/OC will average the points of each team. The team with the most points wins. In case of ties, the fastest team wins.
 
 The TC reserves the right to change the evaluation procedure.

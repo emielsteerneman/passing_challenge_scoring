@@ -1,0 +1,91 @@
+:source-highlighter: highlightjs
+
+= RoboCup 2024 Team vs. Team Passing Challenge
+{docdate}
+:toc:
+:stem: latexmath
+:sectnumlevels: 0
+
+// add icons from fontawesome in a up-to-date version
+ifdef::backend-html5[]
+++++
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+++++
+endif::backend-html5[]
+
+:icons: font
+:numbered:
+
+NOTE: References to the male gender in the rules with respect to referees, team
+members, officials, etc., are for simplification and apply to both males and
+females.
+
+== Goal
+
+A key distinguishing characteristic of the Small Size League is its tight integration of software and hardware, which is crucial to create a dynamic, collaborative soccer match. 
+While this goal was pursued in last year's SSL Chip Pass Challenge, the goal of this year's challenge is to utilize last year's work and adapt it to a more realistic situation.
+
+Therefore this year two teams will try to play as many passes as possible while competing against each other. To achieve this, the ruleset used last year has been adapted to the new situation.
+
+Although the teams, which have participated in one of the previous passing challenges, might have a slight advantage, we would like to encourage all teams to participate in this technical challenge.
+
+== Procedure
+
+To level the playing field and to remove the impact of the performance of the opponent team on a teams score, each team will play two games against different contestants of the technical challenge. To reduce the risk of biases the TC/OC will draw the pairings for each match by random and announce the pairings together with the schedule for the technical challenge.
+
+Each game will have the following procedure:
+
+* To reduce the preparation time, the team colors for each team will be determined by the TC/OC and announced together with the schedule of the technical challenge.
+* To start the game, a kick-off command for the yellow team will be issued from the game controller. For the start the robots can be positioned in any way preferred, as long as the positioning does not violate the usual ruleset for a kick-off.
+* After *2 minutes of game time* a stop command will be issued and the first half of the game is over.
+* The half time break for this challenge will be only 60 seconds, since it should be mainly used to set up the robots at their desired position again and to exchange faulty robots. 
+* To start the second half a kick-off command for the blue team will be issued.
+* After another *2 minutes of game time* a stop command will be issued and the game is over. 
+
+=== Special Rule Set during the Technical Challenge
+
+For the technical challenge a Div B field will be used with a maximum of 4 robots per team. If the ball leaves the field via any of the field lines, the game will be stopped and the team that did not last touch the ball gets awarded a kick-off.
+
+During the games of the technical challenge *only* the following fouls from the ssl rulebook apply: 
+
+* Pushing 
+* Ball Holding 
+* Tipping over or dropping parts 
+* Boundary Crossing 
+* Excessive Dribbling 
+* Ball Speed 
+* Crashing 
+* Defender too close to ball 
+* Robot Stop Speed 
+
+If there is no progress in the game for 10 seconds while both teams are allowed to manipulate the ball, the game is stopped and the team that got the first kick-off of this halftime will get a kick off.
+
+=== Pass Definitions
+
+Teams are free in how they perform the passes. Definitions of a pass in general and additional constraints needed for the scoring are given in this section.
+
+A pass is defined as follows:
+
+* A pass has a source position, a target position and a shooter.
+* The source position is where a robot kicks the ball.
+* The target position is where the ball stops or changes its direction.
+* The shooter is the robot located nearest to the source position when the pass starts.
+* The pass distance is the euclidean distance between the source and target position.
+
+== Scoring
+
+A valid pass must meet the following criteria:
+
+* The pass distance must be at least *1 m*.
+* The shooter and the receiver of the pass must be from the same team.
+* The ball must not exceed 6.5m/s (as defined in the tournament rules).
+* The source and target must be inside field lines.
+
+Each valid pass is worth one point.  
+
+=== Evaluation
+
+Two or more members of OC/TC will be assigned to each challenge and act as the referee. The referee has the final decision on the result. If the two referees' counts differ, the final result will be the points average.
+
+The points for each team from both games will be added and the team with the most points wins.
+Teams with the same number of points will share the better position.

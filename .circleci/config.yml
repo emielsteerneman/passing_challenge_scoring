@@ -17,7 +17,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - "SHA256:qDk4RVZw4RPDgi01xxEo11tKG72jbNJKWn9ZJbOt3gU"
+            - "SHA256:vzr3/6oPyrv7i/7tnUxS++cqSm5bsbvSq0MH3ziZCKg"
       - checkout
       - run: |
           year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"

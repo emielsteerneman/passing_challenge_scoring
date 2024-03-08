@@ -29,6 +29,7 @@ jobs:
           cp -r ../pages/* /tmp/out/
           git checkout gh-pages
           rm -rf * .asciidoctor
+          cd ..
           mv /tmp/out/* .
           git config user.name "CircleCI"
           git config user.email "build-pipeline@circleci.com"

@@ -1,0 +1,47 @@
+version: 2.1
+
+jobs:
+  build:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - checkout
+      - run: |
+          year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
+          cd "${year}"
+          docker run -v $(pwd):/documents/ -u $(id -u) asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram -a data-uri *.adoc
+          docker run -v $(pwd):/documents/ -u $(id -u) asciidoctor/docker-asciidoctor asciidoctor-pdf -r asciidoctor-diagram *.adoc
+  build_publish:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "SHA256:vzr3/6oPyrv7i/7tnUxS++cqSm5bsbvSq0MH3ziZCKg"
+      - checkout
+      - run: |
+          year="$(ls -1 | grep -E '^[0-9]{4}$' | sort -n | tail -n1)"
+          cd "${year}"
+          docker run -v $(pwd):/documents/ -u $(id -u) asciidoctor/docker-asciidoctor asciidoctor -r asciidoctor-diagram -a data-uri *.adoc
+          docker run -v $(pwd):/documents/ -u $(id -u) asciidoctor/docker-asciidoctor asciidoctor-pdf -r asciidoctor-diagram *.adoc
+          mkdir /tmp/out
+          mv ./*.html ./*.pdf /tmp/out/
+          cp -r ../pages/* /tmp/out/
+          git checkout gh-pages
+          rm -rf * .asciidoctor
+          cd ..
+          mv /tmp/out/* .
+          git config user.name "CircleCI"
+          git config user.email "build-pipeline@circleci.com"
+          git add .
+          git commit -m "Update GitHub Pages"
+          git push
+
+workflows:
+  version: 2
+  docker:
+    jobs:
+      - build:
+          filters: { branches: { ignore: master } }
+      - build_publish:
+          filters: { branches: { only: master } }

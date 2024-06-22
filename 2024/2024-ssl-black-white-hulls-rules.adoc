@@ -29,23 +29,27 @@ All teams are eligible and *are encouraged* to participate in this challenge.
 
 == Evaluation
 
-Every team has a 5-minute pitch to explain their solution for the challenge and the built design and 5 minutes for possible questions. During the presentation, the TC/OC will measure the time of the team solution.
+Every team has a 5-minute pitch to explain their solution for the challenge and the built design and 5 minutes for possible questions.
+
+After the presentation, the TC/OC will measure the time of the team solution. The TC/OC will decide on the venue how the measurement will occur, but in general it will be measured the time to change the hull of one robot, considering the vision pattern.
 
 At least one member of each team should be present during presentations since all teams will vote for the best solution.
 
 The following criteria will be evaluated.
 
-* Size efficiency
-* Durability
-* Ease of changing
-* Costs
-* Ease of building
+* *Size efficiency:* this criterion evaluates the efficiency of the logistics to transport the hulls.
+* *Durability:* this criterion evaluates the resistance of the solution to possible crashes and other possible damages during a game.
+* *Ease of changing:* this is a qualitative criterion to measure how the other teams feel about the time and ease of the solution proposed.
+* *Costs:* this criterion evaluates the costs of the solution, like material used or machining.
+* *Ease of building:* this criterion evaluates how easy the process is to build the solution proposed.
 
 === Scoring
 
-After the presentations, every team will receive a ballot where they will rate the solutions from 1 to 5 for each criterion.
+After the presentations, every team will receive a ballot where they will rate the solutions from 0 to 5 for each criterion.
 
-The teams are encouraged to use their solutions in the matches to prove their efficiency to the others. Besides, the teams that use their solution in a game earn 5 extra points and can receive more 5 points if they switch the hulls during half-time.
+The teams are encouraged to use their solutions in the matches to prove their efficiency to the others. Besides, the teams that use their solution in a game earn 5 extra points and can receive 5 additional points if they switch the hulls of at least four robots during half-time.
+
+NOTE: If the referee reports a hull break during the game, the extra points won't count, but the team can try again in another match.
 
 The TC/OC will average the points of each team. The team with the most points wins. In case of ties, the fastest team wins.
 

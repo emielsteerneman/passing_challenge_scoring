@@ -93,21 +93,21 @@ def solve_spring_system(current:list[float], springs:list[float], step:float=0.0
 
 if __name__ == "__main__":
 
-    get_total_goals = lambda matches, team: sum([ m[m.index(team)+2] for m in matches if team in m ])
+    get_total_passes = lambda matches, team: sum([ m[m.index(team)+2] for m in matches if team in m ])
 
-    # Calculate total goals per team
-    goals_per_team = { team: get_total_goals(MATCHES, team) for team in TEAMS_CYCLE }
+    # Calculate total passes per team
+    passes_per_team = { team: get_total_passes(MATCHES, team) for team in TEAMS_CYCLE }
 
     # Create initial state
-    initial = [ goals_per_team[team] for team in TEAMS_CYCLE ]
+    initial = [ 0. for team in TEAMS_CYCLE ]
     springs = []
-    # For each team pair that played against each other, calculate the difference in goals
+    # For each team pair that played against each other, calculate the difference in passes
     for team1, team2 in zip(TEAMS_CYCLE, TEAMS_CYCLE[1:] + [TEAMS_CYCLE[0]]):
         # Find the match between the two teams
         match = [ m for m in MATCHES if team1 in m and team2 in m ][0]
-        # Get the total goals for each team
+        # Get the total passes for each team
         s1, s2 = match[match.index(team1)+2], match[match.index(team2)+2]
-        # The difference in goals is the spring value. See drawing.drawio for more info
+        # The difference in passes is the spring value. See drawing.drawio for more info
         springs.append(s1-s2)
 
     # Iteratively solve the spring system until it converges

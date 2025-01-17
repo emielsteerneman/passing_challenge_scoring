@@ -8,32 +8,30 @@ Imagine all teams placed in a circle. Whenever two teams play a match, we connec
 
 # Step-by-Step Explanation
 
-### Start with each team’s total goals
-We look at all the goals each team scored in the tournament. That’s our starting point. Think of it like a “guess” at who’s better or worse, based purely on total goals made.
+### Start with each team at a score of 0
 
-### Connect teams that played each other with an imaginary spring
-- If Team A won by a large margin against Team B, the spring between them is “stretched.” It tries to push A “further” ahead and pull B “further” behind.
-- If the match was very close, the spring is only slightly stretched or almost relaxed.
-- If Team B outscored Team A, then the spring pulls B forward and pushes A back accordingly.
+### Connect teams that played against eachother with an imaginary spring
+- If Team A won by a large margin against Team B, the spring between them is stretched. It tries to push A up and B down.
+- If the match was very close, the spring pulls team A and team B closer together.
 
 ### Arrange teams in a circle and let the springs do their work
 We place all teams in a circle: each team is only directly connected to its “neighbors” by these springs. The stretch or compression in each spring is based on the score difference from their match.
 
 ### Repeatedly “relax” the springs
-The computer acts like a big “physics simulator.” Over many small steps, it adjusts each team’s position (or new “score”) so that everyone moves closer to where the springs want them to be.
+The code acts like a physics simulator. Over many small steps, it adjusts each team’s position (or new “score”) so that everyone moves closer to where the springs want them to be.
 - If a spring is stretched too much, it pulls the teams toward each other.
-- If a spring is too compressed, it pushes the teams apart.
+- If a spring is compressed too much, it pushes the teams apart.
 
 ### Stop when nothing is really changing anymore
 After many rounds, the teams settle in positions where no spring is overstretched or over-compressed. That final position gives each team’s adjusted score.
 
 ### Use these adjusted scores for the final ranking
-Teams with higher adjusted scores are ranked higher. This ranking tries to capture not just how many goals each team scored in total, but also how they performed relative to the specific opponents they faced.
+Teams with higher adjusted scores are ranked higher. This ranking tries to capture not just how many passes each team scored in total, but also how they performed relative to the specific opponents they faced.
 
 # Why Do This?
 
-Simple total goals can be misleading, because you might have scored a ton of goals against a weaker opponent but still lost to several others.
-By using these imaginary springs (one for each match), we get a balance of all the matches. If you beat a strong team (who itself beat others), you tend to get pushed up. If you lose to a weak team, it pushes you down more than just the raw goals suggest.
+Simple total passes can be misleading, because you might have scored a ton of passes against a weaker opponent but still lost to several others.
+By using these imaginary springs (one for each match), we get a balance of all the matches. If you beat a strong team (who itself beat others), you tend to get pushed up. If you lose to a weak team, it pushes you down more than just the raw passes suggest.
 
 # The Key Takeaway
 

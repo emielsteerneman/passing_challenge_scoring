@@ -71,7 +71,7 @@ def show(image, timeout=0):
     if cv2.waitKey(timeout) == ord('q'):
         exit()
 
-def render(teams, springs, values, timeout=0):
+def render(teams, forces, values, timeout=0):
     GRID_STEP = 4
     WHITE = (255, 255, 255)
     BACKGROUND = (10, 10, 10)
@@ -107,7 +107,7 @@ def render(teams, springs, values, timeout=0):
     get_color = lambda i: (255 - i*50, 0, i*50)
 
     values_shift_one = values[1:] + [values[0]]
-    for i, (team, spring, value, next_value) in enumerate(zip(teams, springs, values, values_shift_one)):
+    for i, (team, force, value, next_value) in enumerate(zip(teams, forces, values, values_shift_one)):
         x, y = to_x(i), to_y(value)# YCENTER-int(value*GRID_STEP)
         x2, y2 = to_x(i+1), to_y(next_value) #YCENTER-int(values[(i+1)%len(teams)]*GRID_STEP)
 
@@ -119,48 +119,48 @@ def render(teams, springs, values, timeout=0):
         cv2.putText(image, f"{team}: {value:.2f}", (x-50, 50+(i%2)*25), FONT, 0.5, WHITE, 1, cv2.LINE_AA)
 
         
-        string = f"^ {spring} v" if spring > 0 else f"v {abs(spring)} ^"
-        if spring == 0: string = f"= {spring} ="
+        string = f"^ {force} v" if force > 0 else f"v {abs(force)} ^"
+        if force == 0: string = f"= {force} ="
 
-        # Draw a fancy spring (zigzagging lines)
-        spring_x = x + XSTEP//2
+        # Draw a fancy force (zigzagging lines)
+        force_x = x + XSTEP//2
         dy = abs(y - y2)
-        spring_ = abs(spring)
-        for i in range(spring_):
+        force_ = abs(force)
+        for i in range(force_):
             wire_x1 = 5 if i % 2 == 0 else -5
-            wire_y1 = min(y, y2) + int(i * (dy/spring_))
+            wire_y1 = min(y, y2) + int(i * (dy/force_))
             wire_x2 = 5 if i % 2 == 1 else -5
-            wire_y2 = min(y, y2) + int((i+1) * (dy/spring_))
-            cv2.line(image, (spring_x + wire_x1, wire_y1), (spring_x + wire_x2, wire_y2), (255, 255, 0), 1, cv2.LINE_AA)
+            wire_y2 = min(y, y2) + int((i+1) * (dy/force_))
+            cv2.line(image, (force_x + wire_x1, wire_y1), (force_x + wire_x2, wire_y2), (255, 255, 0), 1, cv2.LINE_AA)
 
         cv2.putText(image, string, (x + XSTEP//2 - 20, (y + y2)//2), FONT, 0.6, BACKGROUND, 4, cv2.LINE_AA)
         cv2.putText(image, string, (x + XSTEP//2 - 20, (y + y2)//2), FONT, 0.6, WHITE, 1, cv2.LINE_AA)
 
     show(image, timeout)
 
-def solve_spring_system(current:list[float], springs:list[float], step:float=0.01) -> list[float]:
+def solve_force_system(current:list[float], forces:list[float], step:float=0.01) -> list[float]:
     step = float(step) # Convert from np.float to python float
     n = len(current)
     new = current.copy()
     print(f"[solve] Step: {step:.4f}")
     # Logging
-    print("[solve] Springs: ", " | ".join([ f"{_:>5.1f}" for _ in springs ]))
+    print("[solve] forces: ", " | ".join([ f"{_:>5.1f}" for _ in forces ]))
     print("[solve] Current: ", " | ".join([ f"{_:>5.1f}" for _ in current ]))
 
     # For each team
     for i in range(n):
         i_left, i_right = (i-1+n)%n, (i+1)%n
-        # Get the spring force between the current team and the team to the left and right
-        spring_left, spring_right = -springs[i_left], springs[i]
-        # Calculate the difference between the current state and the spring force
+        # Get the force force between the current team and the team to the left and right
+        force_left, force_right = -forces[i_left], forces[i]
+        # Calculate the difference between the current state and the force force
         diff_left, diff_right = (current[i] - current[i_left]), (current[i] - current[i_right])
         # Calculate the movement of the team based on the difference
-        move_left, move_right = (spring_left - diff_left), (spring_right - diff_right)
+        move_left, move_right = (force_left - diff_left), (force_right - diff_right)
         # Step the team based on the movement
         step_size = step * (move_left + move_right)
         new[i] += step_size
 
-        print(f"[solve]    At team {TEAMS_CYCLE[i]:<16} | sl {spring_left:>5.1f} | sr {spring_right:>5.1f} | dl {diff_left:>5.1f} | dr {diff_right:>5.1f} | ml {move_left:>5.1f} | mr {move_right:>5.1f}") 
+        print(f"[solve]    At team {TEAMS_CYCLE[i]:<16} | sl {force_left:>5.1f} | sr {force_right:>5.1f} | dl {diff_left:>5.1f} | dr {diff_right:>5.1f} | ml {move_left:>5.1f} | mr {move_right:>5.1f}") 
 
     return new
 
@@ -178,26 +178,26 @@ if __name__ == "__main__":
     # Create initial state
     # initial = [ 0. for team in TEAMS_CYCLE ]
     initial = [ passes_per_team[team] for team in TEAMS_CYCLE ]
-    springs = []
+    forces = []
     # For each team pair that played against each other, calculate the difference in passes
     for team1, team2 in zip(TEAMS_CYCLE, TEAMS_CYCLE[1:] + [TEAMS_CYCLE[0]]):
         # Find the match between the two teams
         match = [ m for m in MATCHES if team1 in m and team2 in m ][0]
         # Get the total passes for each team
         s1, s2 = match[match.index(team1)+2], match[match.index(team2)+2]
-        # The difference in passes is the spring value. See drawing.drawio for more info
-        springs.append(s1-s2)
+        # The difference in passes is the force value. See drawing.drawio for more info
+        forces.append(s1-s2)
 
-    # Iteratively solve the spring system until it converges
+    # Iteratively solve the force system until it converges
     current = initial
     prev = [0.0] * len(TEAMS_CYCLE)
-    render(TEAMS_CYCLE, springs, current, timeout=0)
+    render(TEAMS_CYCLE, forces, current, timeout=0)
 
     for i in range(1000):
         print(f"Step {i:>5} ", end="\r")
-        render(TEAMS_CYCLE, springs, current, timeout=200)
+        render(TEAMS_CYCLE, forces, current, timeout=200)
     
-        current = solve_spring_system(current, springs, step=0.01 + 0.01*i)
+        current = solve_force_system(current, forces, step=0.01 + 0.01*i)
     
         if np.allclose(current, prev, atol=0.0001):
             print(f"Scores converged at step {i}")
@@ -210,4 +210,4 @@ if __name__ == "__main__":
         print(f"{team:<16} | {score:.2f}")
 
     # System converged. Render the final state
-    render(TEAMS_CYCLE, springs, current, 0)
+    render(TEAMS_CYCLE, forces, current, 0)

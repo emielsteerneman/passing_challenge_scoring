@@ -67,7 +67,7 @@ MATCHES = [
 
 
 
-def solve_spring_system(current:list[float], springs:list[float], step:float=0.01) -> list[float]:
+def solve_force_system(current:list[float], forces:list[float], step:float=0.01) -> list[float]:
     step = float(step) # Convert from np.float to python float
     n = len(current)
     new = current.copy()
@@ -75,12 +75,12 @@ def solve_spring_system(current:list[float], springs:list[float], step:float=0.0
     # For each team
     for i in range(n):
         i_left, i_right = (i-1+n)%n, (i+1)%n
-        # Get the spring force between the current team and the team to the left and right
-        spring_left, spring_right = -springs[i_left], springs[i]
-        # Calculate the difference between the current state and the spring force
+        # Get the force force between the current team and the team to the left and right
+        force_left, force_right = -forces[i_left], forces[i]
+        # Calculate the difference between the current state and the force force
         diff_left, diff_right = (current[i] - current[i_left]), (current[i] - current[i_right])
         # Calculate the movement of the team based on the difference
-        move_left, move_right = (spring_left - diff_left), (spring_right - diff_right)
+        move_left, move_right = (force_left - diff_left), (force_right - diff_right)
         # Step the team based on the movement
         step_size = step * (move_left + move_right)
         new[i] += step_size
@@ -100,23 +100,23 @@ if __name__ == "__main__":
 
     # Create initial state
     initial = [ 0. for team in TEAMS_CYCLE ]
-    springs = []
+    forces = []
     # For each team pair that played against each other, calculate the difference in passes
     for team1, team2 in zip(TEAMS_CYCLE, TEAMS_CYCLE[1:] + [TEAMS_CYCLE[0]]):
         # Find the match between the two teams
         match = [ m for m in MATCHES if team1 in m and team2 in m ][0]
         # Get the total passes for each team
         s1, s2 = match[match.index(team1)+2], match[match.index(team2)+2]
-        # The difference in passes is the spring value. See drawing.drawio for more info
-        springs.append(s1-s2)
+        # The difference in passes is the force value. See drawing.drawio for more info
+        forces.append(s1-s2)
 
-    # Iteratively solve the spring system until it converges
+    # Iteratively solve the force system until it converges
     current = initial
     prev = [0.0] * len(TEAMS_CYCLE)
 
     for i in range(1000):
     
-        current = solve_spring_system(current, springs, step=0.01 + 0.01*i)
+        current = solve_force_system(current, forces, step=0.01 + 0.01*i)
     
         if np.allclose(current, prev, atol=0.0001):
             print(f"Scores converged at step {i}")

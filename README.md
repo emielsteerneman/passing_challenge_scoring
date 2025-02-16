@@ -44,40 +44,11 @@ KIKS        | -45 | 5th
 
 This makes a bit more sense. ER-Force ends up above TIGERs, which it won against. It also placed above ZJUNLict, against which it lost. That still feels a bit weird.. **But wait**. If we continue the scoring system, given that ZJUNLict had 3 passes more against ER-Force, ER-Force should end up at the score -4 - 3 = -7 !? But ER-Force already received the score of 0 all the way at the beginning.. What now? Does ER-Force receive a score of 0 or -7? If we give ER-Force the score of 0, it stays on the 1st place. If we give it the score of -7, it receives 3rd place. But then, at -7, shouldn't TIGERs also move down again to -7 - 3 = -10? Maybe we should give ER-Force a score of -3.5, in the middle. But then again, TIGERs would have to move down to -6.5? Maybe TIGERs its score should then be averaged as well? And because TIGERs moves down, KIKS moves down again as well. As you can see, this is an infinite circle, where we keep pushing the score of teams up and down. Fortunately, there is a solution to this seemingly infinite process. 
 
+## Ending this never-ending circle
+What we can say from the previous example, is that ER-Force is "pushing down" TIGERs with a "force" of 3 (since it made 3 more passes than TIGERs in their match). ER-Force is also pushing ZJUNLict up, with a force of 3 (since it made 3 passes less than ZJUNLict in their match). This is the same as saying that ZJUNLict is pushing ER-Force down with a force of 3. Following the example, all teams are exercising forces on other teams they played against. 
 
+To end this confusing tug-of-war, we place all teams in a circle, and we let each team **pull** or **push** the teams it faced, with a force equal to the difference in passes. In other words, if ER-Force is "up" 3 passes against TIGERs, it pushes TIGERs "down" by 3. Meanwhile, if ER-Force is "down" 3 passes against ZJUNLict, ZJUNLict pushes ER-Force "down" by 3.  
 
+Because every team faces exactly two other teams in this simplified ring (one on its left, one on its right), we can write down an equation describing how the forces from each opponent pull or push that team up or down. Then we **iterate** these equations over and over, adjusting each team's score step by step. One iteration might nudge ER-Force slightly lower (due to ZJUNLict) and TIGERs slightly lower again (due to ER-Force), and so on around the circle. Eventually, if we keep doing these tiny nudges, all forces balance out, and we end up with a stable set of scores—no team wants to move up or down anymore, because the total pull and push on each team is zero.
 
-
-
-### Start with each team at a score of 0
-
-### Connect teams that played against eachother with an imaginary spring
-- If Team A won by a large margin against Team B, the spring between them is stretched. It tries to push A up and B down.
-- If the match was very close, the spring pulls team A and team B closer together.
-
-### Arrange teams in a circle and let the springs do their work
-We place all teams in a circle: each team is only directly connected to its “neighbors” by these springs. The stretch or compression in each spring is based on the score difference from their match.
-
-### Repeatedly “relax” the springs
-The code acts like a physics simulator. Over many small steps, it adjusts each team’s position (or new “score”) so that everyone moves closer to where the springs want them to be.
-- If a spring is stretched too much, it pulls the teams toward each other.
-- If a spring is compressed too much, it pushes the teams apart.
-
-### Stop when nothing is really changing anymore
-After many rounds, the teams settle in positions where no spring is overstretched or over-compressed. That final position gives each team’s adjusted score.
-
-### Use these adjusted scores for the final ranking
-Teams with higher adjusted scores are ranked higher. This ranking tries to capture not just how many passes each team scored in total, but also how they performed relative to the specific opponents they faced.
-
-# Why Do This?
-
-Simple total passes can be misleading, because you might have scored a ton of passes against a weaker opponent but still lost to several others.
-By using these imaginary springs (one for each match), we get a balance of all the matches. If you beat a strong team (who itself beat others), you tend to get pushed up. If you lose to a weak team, it pushes you down more than just the raw passes suggest.
-
-# The Key Takeaway
-
-Think of it like a tug-of-war network:
-
-- Each match is a rope (a “spring”) connecting the two teams who played.
-- The stronger your relative score in a match, the harder that rope pulls you upward in the ranking (and pulls the other team down).
-- After letting all ropes pull at once and adjusting teams step by step, everyone lands in a stable place, giving us the final order.
+Mathematically, this final solution is where each team's position perfectly balances the net "force" coming from its matches. Intuitively, a team that lost badly to a top contender will get pushed down quite a bit. If it also beat another team by a large margin, it will get pulled back up. And so on. So instead of thinking in a linear chain of who beat whom first and then second, this method captures all of those interactions at once and finds a sweet spot where every match’s pass difference is factored in fairly.

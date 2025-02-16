@@ -6,7 +6,7 @@ Let's pick two strong teams, ZJUNLict and TIGERs Mannheim. What if these are you
 
 Now, let's also take two low-tier Div B teams, and another team, RoboTeam Twente. RoboTeam Twente plays quite well against these two teams, making 4 + 7 = 11 passes. RoboTeam Twente made more passes than your team, so they have a higher ranking. But that doesn't seem really fair does it? You had to play against two top-tier Div-A teams, and RoboTeam Twente against two low-tier Div B teams! 
 
-Just looking at the total number of passes made doesn't work. So, how do we wrong this right? We somehow have to take into account that one team might just have two very strong opponents, while another might have two weak opponents. Having even more matches to have your team play against RoboTeam Twente isn't an option, so ..?
+Just looking at the total number of passes made doesn't work. So, how do we right this wrong? We somehow have to take into account that one team might just have two very strong opponents, while another might have two weak opponents. Having even more matches to have your team play against RoboTeam Twente isn't an option, so ..?
 
 ## An exaggerated example
 If you pass as well as another team (meaning, an almost equal number of passes in a match), it makes sense that you and the other team have around the same ranking. If you destroy another team, your team should have a much higher ranking than that other team. Therefore, let's start with an exaggerated example tournament.
@@ -24,10 +24,10 @@ This brings the total number of passes for each team to the following:
 Team | Passes | Ranking
 ---: | --- | ---
 ZJUNLict    | 55 | 1st
-ER-Force    |  6 | 5th
 TIGERs      | 46 | 2nd
-KIKS        | 11 | 4th
 RoboDragons | 23 | 3rd
+KIKS        | 11 | 4th
+ER-Force    |  6 | 5th
  
 This ranking doesn't make much sense. ER-Force played so well against ZJUNLict and even beat TIGERs. Yet, it's placed last? The problem here is that ER-Force had two strong opponents, while ZJUNLict and TIGERs both also had one relative weak opponent.  
 
@@ -36,11 +36,11 @@ Let's start by putting ER-Force at a score of 0. This score is relative to the s
 
 Team | Score | Ranking
 ---: | --- | ---
-ZJUNLict    | -4 | 3rd
 ER-Force    |  0 | 1st
 TIGERs      | -3 | 2nd
-KIKS        | -45 | 5th
+ZJUNLict    | -4 | 3rd
 RoboDragons | -42 | 4th
+KIKS        | -45 | 5th
 
 This makes a bit more sense. ER-Force ends up above TIGERs, which it won against. It also placed above ZJUNLict, against which it lost. That still feels a bit weird.. **But wait**. If we continue the scoring system, given that ZJUNLict had 3 passes more against ER-Force, ER-Force should end up at the score -4 - 3 = -7 !? But ER-Force already received the score of 0 all the way at the beginning.. What now? Does ER-Force receive a score of 0 or -7? If we give ER-Force the score of 0, it stays on the 1st place. If we give it the score of -7, it receives 3rd place. But then, at -7, shouldn't TIGERs also move down again to -7 - 3 = -10? Maybe we should give ER-Force a score of -3.5, in the middle. But then again, TIGERs would have to move down to -6.5? Maybe TIGERs its score should then be averaged as well? And because TIGERs moves down, KIKS moves down again as well. As you can see, this is an infinite circle, where we keep pushing the score of teams up and down. Fortunately, there is a solution to this seemingly infinite process. 
 

@@ -87,9 +87,61 @@ def solve_force_system(current:list[float], forces:list[float], step:float=0.01)
 
     return new
 
+def closed_form_solution(forces: list[float]) -> list[float]:
+    """
+    Computes a closed-form solution for the team scores based on input forces (differences in passing scores).
+    
+    The method constructs a reduced Laplacian matrix by fixing the score of the first team (x[0] = 0) 
+    to remove the degree of freedom caused by the invariance to an additive constant. 
+    For teams 1..n-1, the system is described by:
+        -2*x[i] + x[i-1] + x[i+1] = forces[i-1] - forces[i]
+    
+    This gives L*x=b, where L is the Laplacian matrix
+    
+    After solving the system, the full score vector is reconstructed by prepending the fixed value x[0] = 0.
+    
+    Returns:
+        A list of team scores (floats) normalized relative to the first team.
+    """
+    n = len(forces)
+    # Initialize the reduced Laplacian matrix L and right-hand side vector b.
+    L = np.zeros((n - 1, n - 1))
+    b = np.zeros(n - 1)
+    
+    # Build L and b for teams 1 through n-1.
+    for i in range(1, n):
+        row = i - 1  # Map team index to row index in L and b.
+        # Diagonal element for team i: corresponds to -2 * x[i]
+        L[row, row] = -2
+        
+        # Neighbor to the left (if exists)
+        if i - 2 >= 0:
+            L[row, row - 1] = 1
+        
+        # Neighbor to the right (if exists)
+        if i < n - 1:
+            L[row, row + 1] = 1
+        
+        # The right-hand side is defined by the difference in forces between the left neighbor and the current team.
+        b[row] = forces[i - 1] - forces[i]
+    
+    # Solve the linear system for the unknown scores (excluding the first fixed score).
+    x_unknown = np.linalg.solve(L, b)
+    
+    # Reconstruct full score vector with x[0] fixed at zero.
+    x = np.zeros(n)
+    x[1:] = x_unknown
+    return x.tolist()
 
+def normalize_scores(scores: list[float]) -> list[float]:
+    # Normalize scores by subtracting the minimum score
+    m = min(scores)
+    return [s - m for s in scores]
 
-
+def print_scores(header: str, scores: list[float], teams: list[str]) -> None:
+    print(header)
+    for score, team in sorted(zip(scores, teams), reverse=True):
+        print(f"{team:<16} | {score:.2f}")
 
 if __name__ == "__main__":
 
@@ -124,6 +176,9 @@ if __name__ == "__main__":
     
         prev = current
     
-    score_team = list(zip(current, TEAMS_CYCLE))
-    for score, team in sorted(score_team, reverse=True):
-        print(f"{team:<16} | {score:.2f}")
+    normalized_current = normalize_scores(current)
+    print_scores("Final scores:", normalized_current, TEAMS_CYCLE)
+
+    cf_solution = closed_form_solution(forces)
+    normalized_cf = normalize_scores(cf_solution)
+    print_scores("Closed form solution:", normalized_cf, TEAMS_CYCLE)

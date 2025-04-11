@@ -15,9 +15,9 @@ Team 1 | Passes | Team 2
 ---: | :---: | :--- 
 ZJUNLict | 5 - 2 | ER-Force
 ER-Force | 4 - 1 | TIGERs
-TIGERs | 45 - 3 | KIKS
-KIKS | 8 - 11 | RoboDragons
-RoboDragons | 12 - 50 | ZJUNLict
+TIGERs | 45 - 3 | Team X
+Team X | 8 - 11 | Team Y
+Team Y | 12 - 50 | ZJUNLict
 
 This brings the total number of passes for each team to the following:
 
@@ -25,24 +25,24 @@ Team | Passes | Ranking
 ---: | --- | ---
 ZJUNLict    | 55 | 1st
 TIGERs      | 46 | 2nd
-RoboDragons | 23 | 3rd
-KIKS        | 11 | 4th
+Team Y | 23 | 3rd
+Team X        | 11 | 4th
 ER-Force    |  6 | 5th
  
 This ranking doesn't make much sense. ER-Force played so well against ZJUNLict and even beat TIGERs. Yet, it's placed last? The problem here is that ER-Force had two strong opponents, while ZJUNLict and TIGERs both also had one relative weak opponent.  
 
 ## Let's try ranking by relative score
-Let's start by putting ER-Force at a score of 0. This score is relative to the scores of other teams, so 0 doesn't say anything yet. ER-Force had 3 more passes in it's match against TIGERs, so let's place TIGER's at -3. KIKS, because of its -42 pass difference against TIGERs will move to -3 - 42 = -45. RoboDragons will move to -45 + 3 = -42. ZJUNLict will move to -42 + 38 = -4. Now let's look  at the score again.
+Let's start by putting ER-Force at a score of 0. This score is relative to the scores of other teams, so 0 doesn't say anything yet. ER-Force had 3 more passes in it's match against TIGERs, so let's place TIGER's at -3. Team X, because of its -42 pass difference against TIGERs will move to -3 - 42 = -45. Team Y will move to -45 + 3 = -42. ZJUNLict will move to -42 + 38 = -4. Now let's look  at the score again.
 
 Team | Score | Ranking
 ---: | --- | ---
 ER-Force    |  0 | 1st
 TIGERs      | -3 | 2nd
 ZJUNLict    | -4 | 3rd
-RoboDragons | -42 | 4th
-KIKS        | -45 | 5th
+Team Y      | -42 | 4th
+Team X      | -45 | 5th
 
-This makes a bit more sense. ER-Force ends up above TIGERs, which it won against. It also placed above ZJUNLict, against which it lost. That still feels a bit weird.. **But wait**. If we continue the scoring system, given that ZJUNLict had 3 passes more against ER-Force, ER-Force should end up at the score -4 - 3 = -7 !? But ER-Force already received the score of 0 all the way at the beginning.. What now? Does ER-Force receive a score of 0 or -7? If we give ER-Force the score of 0, it stays on the 1st place. If we give it the score of -7, it receives 3rd place. But then, at -7, shouldn't TIGERs also move down again to -7 - 3 = -10? Maybe we should give ER-Force a score of -3.5, in the middle. But then again, TIGERs would have to move down to -6.5? Maybe TIGERs its score should then be averaged as well? And because TIGERs moves down, KIKS moves down again as well. As you can see, this is an infinite circle, where we keep pushing the score of teams up and down. Fortunately, there is a solution to this seemingly infinite process. 
+This makes a bit more sense. ER-Force ends up above TIGERs, which it won against. It also placed above ZJUNLict, against which it lost. That still feels a bit weird.. **But wait**. If we continue the scoring system, given that ZJUNLict had 3 passes more against ER-Force, ER-Force should end up at the score -4 - 3 = -7 !? But ER-Force already received the score of 0 all the way at the beginning.. What now? Does ER-Force receive a score of 0 or -7? If we give ER-Force the score of 0, it stays on the 1st place. If we give it the score of -7, it receives 3rd place. But then, at -7, shouldn't TIGERs also move down again to -7 - 3 = -10? Maybe we should give ER-Force a score of -3.5, in the middle. But then again, TIGERs would have to move down to -6.5? Maybe TIGERs its score should then be averaged as well? And because TIGERs moves down, Team X moves down again as well. As you can see, this is an infinite circle, where we keep pushing the score of teams up and down. Fortunately, there is a solution to this seemingly infinite process. 
 
 ## Ending this never-ending circle
 What we can say from the previous example, is that ER-Force is "pushing down" TIGERs with a "force" of 3 (since it made 3 more passes than TIGERs in their match). ER-Force is also pushing ZJUNLict up, with a force of 3 (since it made 3 passes less than ZJUNLict in their match). This is the same as saying that ZJUNLict is pushing ER-Force down with a force of 3. Following the example, all teams are exercising forces on other teams they played against. 

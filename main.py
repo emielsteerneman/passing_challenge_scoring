@@ -1,70 +1,7 @@
 import cv2
 import numpy as np
-
-ZJUNLICT = "ZJUNlict"
-ROBODRAGONS = "RoboDragons"
-LUHBOTS = "Luhbots"
-ERFORCE = "ER-Force"
-KIKS = "KIKS"
-TIGERS = "TIGERs Mannheim"
-RTT = "RoboTeam Twente"
-
-
-
-
-
-""" EXAMPLE TOURNAMENT """
-TEAMS_CYCLE = [ERFORCE, TIGERS, KIKS, ROBODRAGONS, ZJUNLICT]
-
-MATCHES = [
-    [ZJUNLICT, ERFORCE, 5, 2],
-    [ERFORCE, TIGERS, 4, 1],
-    [TIGERS, KIKS, 45, 3],
-    [KIKS, ROBODRAGONS, 8, 11],
-    [ROBODRAGONS, ZJUNLICT, 12, 50]
-]
-
-# ZJUNLict    - 55 passes total
-# ER-Force    -  6 passes total
-# TIGERS     - 46 passes total
-# KIKS        - 11 passes total
-# RoboDragons - 23 passes total
-
-## Ranking based on passes:
-# ZJUNLict > TIGERS > RoboDragons > KIKS > ER-Force
-# This makes no sense since ER-Force won against TIGERS and basically tied with ZJUNLict
-
-
-
-
-
-# """ 2024 TOURNAMENT """
-# TEAMS_CYCLE = [ERFORCE, LUHBOTS, KIKS, RTT, TIGERS, ROBODRAGONS, ZJUNLICT]
-
-# # Match schedule here https://docs.google.com/spreadsheets/d/1wFbCYw-gfPdE7WykX31WSTPAvU3SWHysxapoCXWekbA/edit?gid=1087321196#gid=1087321196
-# # Score sheet    here https://docs.google.com/spreadsheets/d/1KiqHZhVfNrZQpCc0nftIHPvuw9C-P_diZZ-TQojkGdM/edit?gid=1863286970#gid=1863286970
-# MATCHES = [
-#     [ERFORCE, LUHBOTS, 9, 4],
-#     [ZJUNLICT, ROBODRAGONS, 67, 0],
-#     [RTT, TIGERS, 5, 52],
-#     [KIKS, RTT, 5, 17],
-#     [TIGERS, ROBODRAGONS, 65, 1],
-#     [ERFORCE, ZJUNLICT, 5, 11],
-#     [KIKS, LUHBOTS, 7, 10]
-# ]
-
-# ER-Force 9 - 4 LUHBots 10 - 7 KIKS 5 - 17 RTT 5 - 52 TIGERs Mannheim 65 - 1 RoboDragons 0 - 67 ZJUNlict 11 - 5 ER-Force
-
-# TEAM            - TOTAL PASSES        ORIGINAL RANK       RANK WITH THIS SYSTEM       RESULT
-# ER-Force        - 14 passes total     4th place shared    3rd place                   Moved up
-# LUHBots         - 14 passes total     4th place shared    4th place
-# KIKS            - 12 passes total     6th place           6th place
-# RoboTeam Twente - 22 passes total     3rd place           5th place                   Dropped down
-# TIGERs Mannheim - 117 passes total    1st place           1st place
-# RoboDragons     - 1 pass total        7th place           7th place
-# ZJUNlict        - 78 passes total     2nd place           2nd place
-
-
+from maths import step_solution, closed_form_solution, is_single_cycle, normalize_scores
+from matches import Team, load_2024_tournament
 
 def show(image, timeout=0):
     cv2.imshow("image", image)
@@ -88,7 +25,7 @@ def render(teams, forces, values, timeout=0):
         print("NOT GOING TO FIT!")
         # Modify grid step to fit the values
         GRID_STEP = min(6, 0.8*(YCENTER)/max(values), 0.8*(1200-YCENTER)/min(values))
-    print("Upper Y:", upper_y, "Lower Y:", lower_y, "Grid step:", GRID_STEP)
+    # print("Upper Y:", upper_y, "Lower Y:", lower_y, "Grid step:", GRID_STEP)
 
     to_x = lambda x: 200 + int(x*XSTEP)
     to_y = lambda y: YCENTER - int(y*GRID_STEP)
@@ -138,76 +75,63 @@ def render(teams, forces, values, timeout=0):
 
     show(image, timeout)
 
-def solve_force_system(current:list[float], forces:list[float], step:float=0.01) -> list[float]:
-    step = float(step) # Convert from np.float to python float
-    n = len(current)
-    new = current.copy()
-    print(f"[solve] Step: {step:.4f}")
-    # Logging
-    print("[solve] forces: ", " | ".join([ f"{_:>5.1f}" for _ in forces ]))
-    print("[solve] Current: ", " | ".join([ f"{_:>5.1f}" for _ in current ]))
-
-    # For each team
-    for i in range(n):
-        i_left, i_right = (i-1+n)%n, (i+1)%n
-        # Get the force force between the current team and the team to the left and right
-        force_left, force_right = -forces[i_left], forces[i]
-        # Calculate the difference between the current state and the force force
-        diff_left, diff_right = (current[i] - current[i_left]), (current[i] - current[i_right])
-        # Calculate the movement of the team based on the difference
-        move_left, move_right = (force_left - diff_left), (force_right - diff_right)
-        # Step the team based on the movement
-        step_size = step * (move_left + move_right)
-        new[i] += step_size
-
-        print(f"[solve]    At team {TEAMS_CYCLE[i]:<16} | sl {force_left:>5.1f} | sr {force_right:>5.1f} | dl {diff_left:>5.1f} | dr {diff_right:>5.1f} | ml {move_left:>5.1f} | mr {move_right:>5.1f}") 
-
-    return new
-
-
-
-
-
-if __name__ == "__main__":
-
+def calculate_forces(teams, matches):
     get_total_passes = lambda matches, team: sum([ m[m.index(team)+2] for m in matches if team in m ])
 
     # Calculate total passes per team
-    passes_per_team = { team: get_total_passes(MATCHES, team) for team in TEAMS_CYCLE }
+    passes_per_team = { team: get_total_passes(matches, team) for team in teams }
 
-    # Create initial state
-    # initial = [ 0. for team in TEAMS_CYCLE ]
-    initial = [ passes_per_team[team] for team in TEAMS_CYCLE ]
+    initial = [ passes_per_team[team] for team in teams ]
     forces = []
-    # For each team pair that played against each other, calculate the difference in passes
-    for team1, team2 in zip(TEAMS_CYCLE, TEAMS_CYCLE[1:] + [TEAMS_CYCLE[0]]):
-        # Find the match between the two teams
-        match = [ m for m in MATCHES if team1 in m and team2 in m ][0]
-        # Get the total passes for each team
+    
+    for team1, team2 in zip(teams, teams[1:] + [teams[0]]):
+        match = [ m for m in matches if team1 in m and team2 in m ][0]
         s1, s2 = match[match.index(team1)+2], match[match.index(team2)+2]
-        # The difference in passes is the force value. See drawing.drawio for more info
         forces.append(s1-s2)
+    
+    return initial, forces
 
+def run_step_system(initial, forces):
     # Iteratively solve the force system until it converges
     current = initial
     prev = [0.0] * len(TEAMS_CYCLE)
     render(TEAMS_CYCLE, forces, current, timeout=0)
 
     for i in range(1000):
-        print(f"Step {i:>5} ", end="\r")
-        render(TEAMS_CYCLE, forces, current, timeout=200)
+        # print(f"Step {i:>5} ", end="\r")
+        render(TEAMS_CYCLE, forces, current, timeout=50)
     
-        current = solve_force_system(current, forces, step=0.01 + 0.01*i)
+        current = step_solution(current, forces, step=0.01 + 0.01*i)
     
         if np.allclose(current, prev, atol=0.0001):
-            print(f"Scores converged at step {i}")
+            # print(f"Scores converged at step {i}")
             break
     
         prev = current
+
+    return current
+
+if __name__ == "__main__":
+
+    TEAMS_CYCLE, MATCHES = load_2024_tournament()
+
+    # Check if MATCHES forms a single cycle
+    if not is_single_cycle(TEAMS_CYCLE, MATCHES):
+        raise ValueError("Matches do not form a single cycle. The scoring system may not work correctly.")
     
-    score_team = list(zip(current, TEAMS_CYCLE))
+    initial, forces = calculate_forces(TEAMS_CYCLE, MATCHES)
+
+    closed_form_answer = closed_form_solution(forces)
+    closed_form_answer = normalize_scores(closed_form_answer)
+    score_team = list(zip(closed_form_answer, TEAMS_CYCLE))
+    print(f"Closed form answer:")
     for score, team in sorted(score_team, reverse=True):
         print(f"{team:<16} | {score:.2f}")
 
-    # System converged. Render the final state
-    render(TEAMS_CYCLE, forces, current, 0)
+    print("Step system answer:")
+    step_answer = run_step_system(initial, forces)
+    step_answer = normalize_scores(step_answer)
+    score_team = list(zip(step_answer, TEAMS_CYCLE))
+    for score, team in sorted(score_team, reverse=True):
+        print(f"{team:<16} | {score:.2f}")
+    
